@@ -18,7 +18,9 @@ class _BuilderWidgetState extends State<BuilderWidget> {
         title: Text(
           'Builder Widget',
           style: TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: Utils.ubuntuRegularFont),
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: Utils.ubuntuRegularFont),
         ),
         actions: <Widget>[
           IconButton(
@@ -35,20 +37,21 @@ class _BuilderWidgetState extends State<BuilderWidget> {
       body: Center(
         child: Builder(
           builder: (BuildContext context) {
-            return RaisedButton(
-              color: Colors.blue,
-              textColor: Colors.white,
+            return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.background,
+              ),
               child: Text("Click me"),
               onPressed: () {
-                Scaffold.of(context).showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content:
-                        Text("I was created using context of a builder and not a scaffold key"),
+                    content: Text(
+                        "I was created using context of a builder and not a scaffold key"),
                     action: SnackBarAction(
                       textColor: Colors.yellow,
                       label: 'OK',
                       onPressed: () {
-                        Scaffold.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       },
                     ),
                   ),

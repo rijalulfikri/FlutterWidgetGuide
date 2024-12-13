@@ -12,7 +12,7 @@ import 'syntax_highlighter.dart';
 class CodeScreen extends StatefulWidget {
   final String code;
 
-  CodeScreen({Key key, @required this.code}) : super(key: key);
+  CodeScreen({Key? key, required this.code}) : super(key: key);
 
   @override
   CodeScreenState createState() => CodeScreenState();
@@ -54,7 +54,7 @@ class CodeScreenState extends State<CodeScreen> {
             onPressed: () {
               setDarkTheme(_isDarkThemeSet ? false : true, context);
               if (_isDarkThemeSet) {
-                _scaffoldKey.currentState.showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     elevation: 6.0,
                     behavior: SnackBarBehavior.floating,
@@ -63,7 +63,7 @@ class CodeScreenState extends State<CodeScreen> {
                   ),
                 );
               } else {
-                _scaffoldKey.currentState.showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     elevation: 6.0,
                     behavior: SnackBarBehavior.floating,
@@ -81,7 +81,7 @@ class CodeScreenState extends State<CodeScreen> {
       body: WillPopScope(
         child: SafeArea(
           child: ValueListenableBuilder(
-            builder: (BuildContext context, bool value, Widget child) {
+            builder: (BuildContext context, bool value, Widget? child) {
               return Padding(
                 padding: value
                     ? const EdgeInsets.only(bottom: 48.0)
@@ -100,7 +100,8 @@ class CodeScreenState extends State<CodeScreen> {
                             return Container(
                               padding: EdgeInsets.all(8.0),
                               child: SelectableText.rich(
-                                DartSyntaxHighlighter(_style).format(widget.code),
+                                DartSyntaxHighlighter(_style)
+                                    .format(widget.code),
                                 showCursor: false,
                                 cursorColor: Colors.blue,
                                 cursorRadius: Radius.circular(5),
@@ -120,7 +121,7 @@ class CodeScreenState extends State<CodeScreen> {
         onWillPop: _willPopCallback,
       ),
       floatingActionButton: ValueListenableBuilder(
-        builder: (BuildContext context, bool value, Widget child) {
+        builder: (BuildContext context, bool value, Widget? child) {
           return Padding(
             padding: value
                 ? const EdgeInsets.only(bottom: 48.0)
@@ -128,8 +129,8 @@ class CodeScreenState extends State<CodeScreen> {
             child: FloatingActionButton.extended(
               backgroundColor: Colors.white,
               onPressed: () {
-                Clipboard.setData(new ClipboardData(text: widget.code));
-                _scaffoldKey.currentState.showSnackBar(
+                Clipboard.setData(ClipboardData(text: widget.code));
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     elevation: 6.0,
                     behavior: SnackBarBehavior.floating,
@@ -178,7 +179,7 @@ class CodeScreenState extends State<CodeScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       if (prefs.getBool('isDarkMode') != null) {
-        _isDarkThemeSet = prefs.getBool('isDarkMode');
+        _isDarkThemeSet = prefs.getBool('isDarkMode')!;
         setDarkTheme(_isDarkThemeSet, context);
       } else {
         _isDarkThemeSet = false;

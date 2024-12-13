@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_widget_guide/utils.dart';
 
 import '../Ads.dart';
@@ -54,7 +53,7 @@ class _SelectableTextWidgetState extends State<SelectableTextWidget> {
               margin: EdgeInsets.only(left: 24.0, right: 24.0, top: 24.0),
               child: FlutterLogo(
                 size: 100,
-                colors: bgColor,
+                // colors: bgColor,
               ),
             ),
 

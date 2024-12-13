@@ -52,11 +52,13 @@ class _SnackBarWidgetState extends State<SnackBarWidget> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text('Show simple SnackBar'),
-                color: Theme.of(context).backgroundColor,
-                textColor: Theme.of(context).accentColor,
-                onPressed: () => _scaffoldKey.currentState.showSnackBar(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                  foregroundColor: Theme.of(context).colorScheme.primary,
+                ),
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     duration: Duration(milliseconds: 500),
                     content: Text("Simple SnackBar"),
@@ -66,11 +68,13 @@ class _SnackBarWidgetState extends State<SnackBarWidget> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text('Show elevated SnackBar'),
-                color: Theme.of(context).backgroundColor,
-                textColor: Theme.of(context).accentColor,
-                onPressed: () => _scaffoldKey.currentState.showSnackBar(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                  foregroundColor: Theme.of(context).colorScheme.primary,
+                ),
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     duration: Duration(milliseconds: 500),
                     elevation: 6.0,
@@ -82,11 +86,13 @@ class _SnackBarWidgetState extends State<SnackBarWidget> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text('Show custom layout SnackBar'),
-                color: Theme.of(context).backgroundColor,
-                textColor: Theme.of(context).accentColor,
-                onPressed: () => _scaffoldKey.currentState.showSnackBar(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                  foregroundColor: Theme.of(context).colorScheme.primary,
+                ),
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     duration: Duration(milliseconds: 500),
                     elevation: 6.0,

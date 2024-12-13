@@ -9,7 +9,6 @@ class InheritedWidgett extends StatefulWidget {
 }
 
 class _InheritedWidgettState extends State<InheritedWidgett> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden

@@ -10,7 +10,7 @@ class VideoView extends StatefulWidget {
   final String videoUrl;
   final String title;
 
-  VideoView({Key key, @required this.videoUrl, @required this.title})
+  VideoView({Key? key, required this.videoUrl, required this.title})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class VideoView extends StatefulWidget {
 }
 
 class _VideoViewState extends State<VideoView> {
-  YoutubePlayerController _controller;
+  late YoutubePlayerController _controller;
 
   @override
   void dispose() {
@@ -29,7 +29,7 @@ class _VideoViewState extends State<VideoView> {
   @override
   void initState() {
     _controller = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(widget.videoUrl),
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.videoUrl) ?? '',
       flags: YoutubePlayerFlags(
           mute: false,
           autoPlay: true,

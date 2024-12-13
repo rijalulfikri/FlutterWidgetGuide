@@ -50,8 +50,10 @@ class _CupertinoActionSheetWidgetState
         ],
       ),
       body: Center(
-        child: RaisedButton(
-          color: Theme.of(context).backgroundColor,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Theme.of(context).colorScheme.background,
+          ),
           child: Text(
             "Show sheet",
             style: TextStyle(color: Theme.of(context).primaryColor),
@@ -62,11 +64,13 @@ class _CupertinoActionSheetWidgetState
               builder: (context) => CupertinoActionSheet(
                 title: Text(
                   "Things",
-                  style: TextStyle(color: Theme.of(context).backgroundColor),
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.background),
                 ),
                 message: Text(
                   "Small list of things to do",
-                  style: TextStyle(color: Theme.of(context).backgroundColor),
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.background),
                 ),
                 actions: <Widget>[
                   CupertinoActionSheetAction(
@@ -80,7 +84,8 @@ class _CupertinoActionSheetWidgetState
                   CupertinoActionSheetAction(
                     child: Text(
                       "Delete",
-                      style: TextStyle(color: Theme.of(context).errorColor),
+                      style:
+                          TextStyle(color: Theme.of(context).colorScheme.error),
                     ),
                     onPressed: () => Navigator.of(context).pop("Delete"),
                     isDestructiveAction: true,
@@ -100,7 +105,7 @@ class _CupertinoActionSheetWidgetState
             ).then(
               (option) {
                 if (option != null) {
-                  _scaffoldKey.currentState.showSnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("Chosen option is - $option"),
                       duration: Duration(milliseconds: 1000),

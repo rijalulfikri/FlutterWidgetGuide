@@ -110,7 +110,9 @@ class _OptionItem<T> extends StatelessWidget {
             value: value,
             groupValue: groupValue,
             activeColor: Colors.lightBlue,
-            onChanged: onChanged),
+            onChanged: (T? v) {
+              if (v != null) onChanged(v);
+            }),
         GestureDetector(
           onTap: () {
             onChanged(value);

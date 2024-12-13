@@ -73,9 +73,12 @@ class _InheritedModelWidgetState extends State<InheritedModelWidget> {
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.all(16.0),
-                    child: RaisedButton(
-                      textColor: Theme.of(context).primaryColor,
-                      color: Theme.of(context).backgroundColor,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Theme.of(context).primaryColor,
+                        backgroundColor:
+                            Theme.of(context).scaffoldBackgroundColor,
+                      ),
                       onPressed: () => setState(() {
                         _colorOne = Utils.getRandomColor();
                       }),
@@ -84,9 +87,12 @@ class _InheritedModelWidgetState extends State<InheritedModelWidget> {
                   ),
                   Container(
                     margin: EdgeInsets.all(16.0),
-                    child: RaisedButton(
-                      textColor: Theme.of(context).primaryColor,
-                      color: Theme.of(context).backgroundColor,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Theme.of(context).primaryColor,
+                        backgroundColor:
+                            Theme.of(context).scaffoldBackgroundColor,
+                      ),
                       onPressed: () => setState(() {
                         _colorTwo = Utils.getRandomColor();
                       }),
@@ -114,7 +120,7 @@ class AncestorWidget extends InheritedModel<String> {
 
   /// Typically the `inheritFrom` method is called from a model-specific
   /// static `of` method
-  static AncestorWidget of(BuildContext context, String aspect) {
+  static AncestorWidget? of(BuildContext context, String aspect) {
     return InheritedModel.inheritFrom<AncestorWidget>(context, aspect: aspect);
   }
 
@@ -157,7 +163,7 @@ class DependentWidgetOne extends StatelessWidget {
     ///Widgets create a dependency on an [InheritedModel] with a static method
     final ancestor = AncestorWidget.of(context, 'one');
     return Container(
-      color: ancestor.colorOne,
+      color: ancestor!.colorOne,
       height: 150,
       width: 200,
       child: Center(
@@ -183,7 +189,7 @@ class DependentWidgetTwo extends StatelessWidget {
     ///Widgets create a dependency on an [InheritedModel] with a static method
     final ancestor = AncestorWidget.of(context, 'two');
     return Container(
-      color: ancestor.colorTwo,
+      color: ancestor!.colorTwo,
       height: 150,
       width: 200,
       child: Center(

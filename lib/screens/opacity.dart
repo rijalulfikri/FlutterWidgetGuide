@@ -62,7 +62,7 @@ class _OpacityWidgetState extends State<OpacityWidget> {
                   child: Text(
                     'Without Animation',
                     style: TextStyle(
-                        color: Theme.of(context).backgroundColor,
+                        color: Theme.of(context).colorScheme.background,
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: Utils.ubuntuRegularFont),
@@ -93,7 +93,7 @@ class _OpacityWidgetState extends State<OpacityWidget> {
                   width: 100,
                   height: 100,
                   child: FlutterLogo(
-                    colors: Colors.lightBlue,
+                    // colors: Colors.lightBlue,
                     textColor: Colors.white,
                   ),
                 ),
@@ -155,7 +155,7 @@ class _OpacityWidgetState extends State<OpacityWidget> {
                   child: Text(
                     'With Animation',
                     style: TextStyle(
-                        color: Theme.of(context).backgroundColor,
+                        color: Theme.of(context).colorScheme.background,
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: Utils.ubuntuRegularFont),

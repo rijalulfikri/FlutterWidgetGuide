@@ -13,7 +13,6 @@ class RichTextWidget extends StatefulWidget {
 }
 
 class _RichTextWidgetState extends State<RichTextWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden
@@ -53,7 +52,7 @@ class _RichTextWidgetState extends State<RichTextWidget> {
             style: TextStyle(
               fontWeight: FontWeight.normal,
               fontSize: 14.0,
-              color: Theme.of(context).backgroundColor,
+              color: Theme.of(context).colorScheme.background,
               height: 1.5,
             ),
             children: <TextSpan>[

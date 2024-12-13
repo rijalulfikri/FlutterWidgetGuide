@@ -12,7 +12,6 @@ class ImageWidget extends StatefulWidget {
 }
 
 class _ImageWidgetState extends State<ImageWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden
@@ -35,14 +34,12 @@ class _ImageWidgetState extends State<ImageWidget> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.code),
-            onPressed: () =>
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        CodeScreen(code: Code.imageWidgetCode),
-                  ),
-                ),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CodeScreen(code: Code.imageWidgetCode),
+              ),
+            ),
           )
         ],
       ),
@@ -56,7 +53,9 @@ class _ImageWidgetState extends State<ImageWidget> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Image from assets folder", textAlign: TextAlign.center,),
+                    "Image from assets folder",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -74,7 +73,9 @@ class _ImageWidgetState extends State<ImageWidget> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Image from the network", textAlign: TextAlign.center,),
+                    "Image from the network",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -86,15 +87,15 @@ class _ImageWidgetState extends State<ImageWidget> {
                       return progress == null
                           ? child
                           : Container(
-                        width: 150,
-                        height: 150,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                                Colors.blue),
-                          ),
-                        ),
-                      );
+                              width: 150,
+                              height: 150,
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.blue),
+                                ),
+                              ),
+                            );
                     },
                   ),
                 )

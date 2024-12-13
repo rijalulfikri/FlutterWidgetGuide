@@ -9,8 +9,9 @@ class AnimatedWidgett extends StatefulWidget {
   _AnimatedWidgettState createState() => _AnimatedWidgettState();
 }
 
-class _AnimatedWidgettState extends State<AnimatedWidgett> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+class _AnimatedWidgettState extends State<AnimatedWidgett>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -31,7 +32,9 @@ class _AnimatedWidgettState extends State<AnimatedWidgett> with SingleTickerProv
         title: Text(
           'AnimatedWidget Widget',
           style: TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: Utils.ubuntuRegularFont),
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: Utils.ubuntuRegularFont),
         ),
         actions: <Widget>[
           IconButton(
@@ -69,20 +72,23 @@ class _AnimatedWidgettState extends State<AnimatedWidgett> with SingleTickerProv
 class ButtonTransition extends AnimatedWidget {
   ///We make a getter for the Animation value and use the listenable
   ///to do just that
-  Animation<double> get _width => listenable;
+  Animation<double> get _width => listenable as Animation<double>;
 
   final AnimationController controller;
 
-  const ButtonTransition({width, this.controller}) : super(listenable: width);
+  const ButtonTransition({required width, required this.controller})
+      : super(listenable: width);
 
   @override
   Widget build(BuildContext context) {
-    return OutlineButton(
+    return TextButton(
       onPressed: () {
-        controller.isAnimating ? controller.stop() : controller.repeat(reverse: true);
+        controller.isAnimating
+            ? controller.stop()
+            : controller.repeat(reverse: true);
       },
-      borderSide: BorderSide(
-        width: _width.value,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Theme.of(context).colorScheme.background,
       ),
       child: Container(
         height: 50,

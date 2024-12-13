@@ -11,7 +11,6 @@ class DraggableWidget extends StatefulWidget {
 }
 
 class _DraggableWidgetState extends State<DraggableWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden
@@ -136,7 +135,8 @@ Widget createDraggable(MaterialColor color, String data) => Draggable(
 Widget createDragtarget(
         BuildContext context, MaterialColor color, String dataOfDragged) =>
     DragTarget(
-      builder: (context, List<String> candidateData, rejectedData) {
+      builder:
+          (context, List<Object?> candidateData, List<dynamic> rejectedData) {
         return Container(
           height: 100,
           width: 100,
@@ -163,7 +163,7 @@ Widget createDragtarget(
 
       /// If the Draggable is dropped onto the DragTarget and onWillAccept returns true, then onAccept is called.
       onAccept: (data) {
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Accepted!!'),
           backgroundColor: Colors.green,
           duration: Duration(seconds: 1),
@@ -172,7 +172,7 @@ Widget createDragtarget(
 
       /// If the Draggable is dropped onto the DragTarget and onWillAccept returns false, then onLeave is called.
       onLeave: (data) {
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Rejected!!'),
           backgroundColor: Colors.red,
           duration: Duration(seconds: 1),

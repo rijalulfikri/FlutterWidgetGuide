@@ -67,7 +67,7 @@ class _CustomPaintWidgetState extends State<CustomPaintWidget> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       if (prefs.getBool('isDarkMode') != null) {
-        _isDarkThemeSet = prefs.getBool('isDarkMode');
+        _isDarkThemeSet = prefs.getBool('isDarkMode') ?? false;
         _isDarkThemeSet == true
             ? _bgColor = Colors.black87
             : _bgColor = Colors.white;

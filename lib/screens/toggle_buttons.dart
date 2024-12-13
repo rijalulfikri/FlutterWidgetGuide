@@ -61,7 +61,7 @@ class _ToggleButtonsWidgetState extends State<ToggleButtonsWidget> {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 style: TextStyle(
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontWeight: _fontWeight,
                   fontStyle: _fontStyle,
                 ),
@@ -69,9 +69,10 @@ class _ToggleButtonsWidgetState extends State<ToggleButtonsWidget> {
                 maxLines: 3,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue[200], width: 1.0),
+                    borderSide:
+                        BorderSide(color: Colors.blue[200]!, width: 1.0),
                   ),
-                  hintStyle: TextStyle(fontSize: 16, color: Colors.grey[400]),
+                  hintStyle: TextStyle(fontSize: 16, color: Colors.grey[400]!),
                   hintText: 'Type something here...',
                   border: OutlineInputBorder(
                     borderSide: BorderSide(),

@@ -62,7 +62,7 @@ class _DismissibleWidgetState extends State<DismissibleWidget> {
               });
 
               // Then show a snackbar!
-              Scaffold.of(context)
+              ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text("$item dismissed")));
             },
             // Show a green background as the item is swiped from left to right

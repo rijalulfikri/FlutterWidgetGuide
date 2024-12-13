@@ -11,7 +11,7 @@ class WrapWidget extends StatefulWidget {
 }
 
 class _WrapWidgetState extends State<WrapWidget> {
-  BuildContext context; //global context
+  late BuildContext context; //global context
 
   @override
   void initState() {
@@ -57,7 +57,7 @@ class _WrapWidgetState extends State<WrapWidget> {
                       Text(
                         'Without Wrap widget',
                         style: TextStyle(
-                            color: Theme.of(context).backgroundColor,
+                            color: Theme.of(context).colorScheme.background,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                             fontFamily: Utils.ubuntuRegularFont),
@@ -106,7 +106,7 @@ class _WrapWidgetState extends State<WrapWidget> {
                       Text(
                         'With Wrap widget',
                         style: TextStyle(
-                            color: Theme.of(context).backgroundColor,
+                            color: Theme.of(context).colorScheme.background,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                             fontFamily: Utils.ubuntuRegularFont),

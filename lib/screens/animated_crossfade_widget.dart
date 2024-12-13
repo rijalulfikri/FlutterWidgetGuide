@@ -79,8 +79,10 @@ class _AnimatedCrossFadeWidgetState extends State<AnimatedCrossFadeWidget> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 12.0),
-              child: RaisedButton(
-                color: Theme.of(context).backgroundColor,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                ),
                 child: Text(
                   "Cross Fade",
                   style: TextStyle(color: Theme.of(context).primaryColor),

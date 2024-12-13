@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_widget_guide/utils.dart';
 
 import '../Ads.dart';
@@ -12,7 +11,6 @@ class ContainerWidget extends StatefulWidget {
 }
 
 class _ContainerWidgetState extends State<ContainerWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden

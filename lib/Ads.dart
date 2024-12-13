@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class Ads {
   static bool isShown = false;
   static bool _isGoingToBeShown = false;
-  static BannerAd _bannerAd;
+  static BannerAd? _bannerAd;
   static ValueNotifier<bool> isAdShown = ValueNotifier<bool>(false);
 
   ///Initialize the Admob on startup
@@ -40,7 +40,7 @@ class Ads {
     if (_bannerAd == null) setBannerAd(adId);
     if (!isShown && !_isGoingToBeShown) {
       _isGoingToBeShown = true;
-      _bannerAd
+      _bannerAd!
         ..load()
         ..show();
     }
@@ -49,7 +49,7 @@ class Ads {
   ///Hide banner ad where you don't want it
   static void hideBannerAd() {
     if (_bannerAd != null && !_isGoingToBeShown) {
-      _bannerAd.dispose().then((disposed) {
+      _bannerAd!.dispose().then((disposed) {
         isShown = !disposed;
         setIsAdShown(isShown);
       });
