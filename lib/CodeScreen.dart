@@ -1,10 +1,10 @@
-import 'package:firebase_admob/firebase_admob.dart';
+// import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_widget_guide/settings.dart';
-import 'package:flutter_widget_guide/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_widget_guide/settings.dart';
+import 'package:flutter_widget_guide/utils.dart';
 
 import 'Ads.dart';
 import 'syntax_highlighter.dart';
@@ -30,7 +30,7 @@ class CodeScreenState extends State<CodeScreen> {
   void initState() {
     _getValueFromSP(context);
     //TODO: Add real ad unit id
-    Ads.showBannerAd(BannerAd.testAdUnitId);
+    // Ads.showBannerAd(BannerAd.testAdUnitId);
     super.initState();
   }
 
