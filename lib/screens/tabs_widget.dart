@@ -50,7 +50,7 @@ class _TabsWidgetState extends State<TabsWidget> {
           //Specify the tabs for your view
           bottom: TabBar(
             tabs: myTabs,
-            indicatorColor: Theme.of(context).backgroundColor,
+            indicatorColor: Theme.of(context).colorScheme.background,
           ),
         ),
         //Provide each tab with its own content

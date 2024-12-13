@@ -61,7 +61,7 @@ class _FloatingActionButtonWidgetState
               child: Text(
                 'Select Fab Size',
                 style: TextStyle(
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: Utils.ubuntuRegularFont),
@@ -87,7 +87,7 @@ class _FloatingActionButtonWidgetState
               child: Text(
                 'Select Fab Position',
                 style: TextStyle(
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: Utils.ubuntuRegularFont),
@@ -114,8 +114,10 @@ class _FloatingActionButtonWidgetState
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _scaffoldKey.currentState
-            .showSnackBar(SnackBar(content: Text("You clicked on the FAB"))),
+        onPressed: () {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("You clicked on the FAB")));
+        },
         child: Icon(Icons.add),
         foregroundColor: Colors.white,
         backgroundColor: Colors.orange,
@@ -172,7 +174,7 @@ class _OptionItem<T> extends StatelessWidget {
             value: value,
             groupValue: groupValue,
             activeColor: Colors.lightBlue,
-            onChanged: onChanged),
+            onChanged: onChanged as void Function(T?)?),
         GestureDetector(
           onTap: () {
             onChanged(value);

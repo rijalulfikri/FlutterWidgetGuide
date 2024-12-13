@@ -22,7 +22,6 @@ class _FittedBoxWidgetState extends State<FittedBoxWidget> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +62,7 @@ class _FittedBoxWidgetState extends State<FittedBoxWidget> {
                     height: _heightValue,
                     width: 300,
                     child: FlutterLogo(
-                      colors: Colors.lightBlue,
+                      // colors: Colors.lightBlue,
                       textColor: Colors.white,
                     ),
                   ),
@@ -148,7 +147,7 @@ class _OptionItem<T> extends StatelessWidget {
             value: value,
             groupValue: groupValue,
             activeColor: Colors.lightBlue,
-            onChanged: onChanged),
+            onChanged: onChanged as void Function(T?)?),
         GestureDetector(
           onTap: () {
             onChanged(value);

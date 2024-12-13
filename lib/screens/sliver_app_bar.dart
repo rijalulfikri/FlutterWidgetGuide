@@ -35,7 +35,7 @@ class SliverAppBarWidget extends StatelessWidget {
               title: Text(
                 "SliverAppBar Widget",
                 style: TextStyle(
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: Utils.ubuntuRegularFont),
@@ -87,7 +87,7 @@ class SliverAppBarWidget extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: Theme.of(context).backgroundColor,
+              color: Theme.of(context).colorScheme.background,
               width: 1.0,
             ),
           ),
@@ -97,7 +97,7 @@ class SliverAppBarWidget extends StatelessWidget {
             "$title",
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).colorScheme.background,
                 fontSize: 14.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: Utils.ubuntuRegularFont),

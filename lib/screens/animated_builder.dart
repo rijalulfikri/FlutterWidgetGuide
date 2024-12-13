@@ -14,11 +14,11 @@ class AnimatedBuilderWidget extends StatefulWidget {
 
 class _AnimatedBuilderWidgetState extends State<AnimatedBuilderWidget>
     with TickerProviderStateMixin {
-  AnimationController _controller1;
-  AnimationController _controller2;
-  AnimationController _controller3;
-  Animation widthAnimation;
-  Animation scaleAnimation;
+  late AnimationController _controller1;
+  late AnimationController _controller2;
+  late AnimationController _controller3;
+  late Animation widthAnimation;
+  late Animation scaleAnimation;
 
   @override
   void initState() {
@@ -137,7 +137,7 @@ class _AnimatedBuilderWidgetState extends State<AnimatedBuilderWidget>
                       animation: _controller1,
                       child: Container(
                           width: 100.0, height: 100.0, color: Colors.lightBlue),
-                      builder: (BuildContext context, Widget child) {
+                      builder: (BuildContext context, Widget? child) {
                         return Transform.rotate(
                           angle: _controller1.value * 2.0 * math.pi,
                           child: child,
@@ -151,7 +151,7 @@ class _AnimatedBuilderWidgetState extends State<AnimatedBuilderWidget>
                       animation: _controller1,
                       child: Container(
                           width: 100.0, height: 100.0, color: Colors.indigo),
-                      builder: (BuildContext context, Widget child) {
+                      builder: (BuildContext context, Widget? child) {
                         return Transform.rotate(
                           angle: _controller1.value * 2.0 * math.pi,
                           child: child,

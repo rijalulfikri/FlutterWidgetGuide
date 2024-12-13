@@ -47,7 +47,7 @@ Widget listItemDesign(BuildContext context, ListItem item, int index) => Card(
                   ? Text(
                       '${index + 1}. ${item.title}',
                       style: TextStyle(
-                          color: Theme.of(context).backgroundColor,
+                          color: Theme.of(context).colorScheme.background,
                           fontSize: 16.0),
                     )
                   : RichText(
@@ -56,7 +56,7 @@ Widget listItemDesign(BuildContext context, ListItem item, int index) => Card(
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 16.0,
-                          color: Theme.of(context).backgroundColor,
+                          color: Theme.of(context).colorScheme.background,
                         ),
                         children: <TextSpan>[
                           TextSpan(text: "${index + 1}. ${item.title} "),
@@ -119,14 +119,15 @@ Widget listItemDesign(BuildContext context, ListItem item, int index) => Card(
                                     fontFamily: Utils.ubuntuRegularFont,
                                     fontWeight: FontWeight.w300),
                               ),
-                              FlatButton(
+                              TextButton(
                                 onPressed: () => {
                                   Utils.launchURL(item.url),
                                   Navigator.pop(context)
                                 },
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                // makes highlight invisible too
+                                style: ButtonStyle(
+                                  overlayColor: MaterialStateProperty.all(
+                                      Colors.transparent),
+                                ),
                                 child: Text('(Official Documentation)',
                                     style: TextStyle(
                                         fontSize: 14.0,
@@ -137,20 +138,27 @@ Widget listItemDesign(BuildContext context, ListItem item, int index) => Card(
                               item.mediumUrl.length != 0
                                   ? Container(
                                       width: 203.0,
-                                      child: OutlineButton(
-                                        borderSide: BorderSide(
-                                            color: Theme.of(context)
-                                                .backgroundColor),
-                                        highlightedBorderColor: Colors.black12,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30.0)),
+                                      child: TextButton(
+                                        style: ButtonStyle(
+                                          overlayColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.transparent),
+                                        ),
+                                        // style: ButtonStyle(
+                                        //   side: BorderSide(
+                                        //       color: Theme.of(context)
+                                        //           .colorScheme
+                                        //           .background),
+                                        //   shape: MaterialStateProperty.all(
+                                        //       RoundedRectangleBorder(
+                                        //     borderRadius:
+                                        //         BorderRadius.circular(30.0)),
                                         onPressed: () => {
                                           Utils.launchURL(item.mediumUrl),
                                           Navigator.pop(context)
                                         },
-                                        splashColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
+                                        // splashColor: Colors.transparent,
+                                        // highlightColor: Colors.transparent,
                                         child: Center(
                                           child: Row(
                                             children: <Widget>[
@@ -163,7 +171,8 @@ Widget listItemDesign(BuildContext context, ListItem item, int index) => Card(
                                                     semanticsLabel:
                                                         "Medium Icon",
                                                     color: Theme.of(context)
-                                                        .backgroundColor,
+                                                        .colorScheme
+                                                        .background,
                                                   ),
                                                 ),
                                                 width: 48.0,
@@ -177,7 +186,8 @@ Widget listItemDesign(BuildContext context, ListItem item, int index) => Card(
                                                       fontFamily: Utils
                                                           .crimsonRegularFont,
                                                       color: Theme.of(context)
-                                                          .backgroundColor)),
+                                                          .colorScheme
+                                                          .background)),
                                             ],
                                           ),
                                         ),

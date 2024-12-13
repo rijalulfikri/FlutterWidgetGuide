@@ -11,7 +11,6 @@ class LimitedBoxWidget extends StatefulWidget {
 }
 
 class _LimitedBoxWidgetState extends State<LimitedBoxWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden

@@ -83,7 +83,7 @@ class _StreamBuilderWidgetState extends State<StreamBuilderWidget> {
                             "Height: ${snapshot.data}",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Theme.of(context).backgroundColor,
+                                color: Theme.of(context).colorScheme.background,
                                 fontSize: 18),
                           ),
                         ),
@@ -93,7 +93,7 @@ class _StreamBuilderWidgetState extends State<StreamBuilderWidget> {
                             "Width: ${snapshot.data}",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Theme.of(context).backgroundColor,
+                                color: Theme.of(context).colorScheme.background,
                                 fontSize: 18),
                           ),
                         )

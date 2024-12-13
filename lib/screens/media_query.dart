@@ -11,7 +11,6 @@ class MediaQueryWidget extends StatefulWidget {
 }
 
 class _MediaQueryWidgetState extends State<MediaQueryWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden
@@ -60,7 +59,7 @@ Widget singleColumnLayout(BuildContext context) => Center(
               "My device info - ",
               style: TextStyle(
                   fontSize: 24.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontWeight: FontWeight.bold,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
@@ -71,7 +70,7 @@ Widget singleColumnLayout(BuildContext context) => Center(
               "Height: ${MediaQuery.of(context).size.height}",
               style: TextStyle(
                   fontSize: 14.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
           ),
@@ -81,7 +80,7 @@ Widget singleColumnLayout(BuildContext context) => Center(
               "Width: ${MediaQuery.of(context).size.width}",
               style: TextStyle(
                   fontSize: 14.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
           ),
@@ -91,7 +90,7 @@ Widget singleColumnLayout(BuildContext context) => Center(
               "Orientation: ${MediaQuery.of(context).orientation}",
               style: TextStyle(
                   fontSize: 14.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
           ),
@@ -101,7 +100,7 @@ Widget singleColumnLayout(BuildContext context) => Center(
               "Brightness: ${MediaQuery.of(context).platformBrightness}",
               style: TextStyle(
                   fontSize: 14.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
           ),
@@ -111,7 +110,7 @@ Widget singleColumnLayout(BuildContext context) => Center(
               "System Padding: ${MediaQuery.of(context).padding}",
               style: TextStyle(
                   fontSize: 14.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
           ),
@@ -121,7 +120,7 @@ Widget singleColumnLayout(BuildContext context) => Center(
               "Device Pixel Ratio: ${MediaQuery.of(context).devicePixelRatio}",
               style: TextStyle(
                   fontSize: 14.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
           ),
@@ -140,7 +139,7 @@ Widget doubleColumnLayout(BuildContext context) => Row(
               "My device info - ",
               style: TextStyle(
                   fontSize: 24.0,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontWeight: FontWeight.bold,
                   fontFamily: Utils.ubuntuRegularFont),
             ),
@@ -156,7 +155,7 @@ Widget doubleColumnLayout(BuildContext context) => Row(
                 "Height: ${MediaQuery.of(context).size.height}",
                 style: TextStyle(
                     fontSize: 14.0,
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontFamily: Utils.ubuntuRegularFont),
               ),
             ),
@@ -166,7 +165,7 @@ Widget doubleColumnLayout(BuildContext context) => Row(
                 "Width: ${MediaQuery.of(context).size.width}",
                 style: TextStyle(
                     fontSize: 14.0,
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontFamily: Utils.ubuntuRegularFont),
               ),
             ),
@@ -176,7 +175,7 @@ Widget doubleColumnLayout(BuildContext context) => Row(
                 "Orientation: ${MediaQuery.of(context).orientation}",
                 style: TextStyle(
                     fontSize: 14.0,
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontFamily: Utils.ubuntuRegularFont),
               ),
             ),
@@ -186,7 +185,7 @@ Widget doubleColumnLayout(BuildContext context) => Row(
                 "Brightness: ${MediaQuery.of(context).platformBrightness}",
                 style: TextStyle(
                     fontSize: 14.0,
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontFamily: Utils.ubuntuRegularFont),
               ),
             ),
@@ -196,7 +195,7 @@ Widget doubleColumnLayout(BuildContext context) => Row(
                 "System Padding: ${MediaQuery.of(context).padding}",
                 style: TextStyle(
                     fontSize: 14.0,
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontFamily: Utils.ubuntuRegularFont),
               ),
             ),
@@ -206,7 +205,7 @@ Widget doubleColumnLayout(BuildContext context) => Row(
                 "Device Pixel Ratio: ${MediaQuery.of(context).devicePixelRatio}",
                 style: TextStyle(
                     fontSize: 14.0,
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontFamily: Utils.ubuntuRegularFont),
               ),
             ),

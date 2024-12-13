@@ -1,40 +1,52 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_inappwebview (0.0.1):
+    - Flutter
+    - flutter_inappwebview/Core (= 0.0.1)
+    - OrderedSet (~> 5.0)
+  - flutter_inappwebview/Core (0.0.1):
+    - Flutter
+    - OrderedSet (~> 5.0)
+  - OrderedSet (5.0.0)
   - package_info (0.0.1):
     - Flutter
-  - share (0.5.2):
+  - shared_preferences_foundation (0.0.1):
     - Flutter
-  - url_launcher (0.0.1):
-    - Flutter
-  - youtube_player (0.0.1):
+    - FlutterMacOS
+  - url_launcher_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_inappwebview (from `.symlinks/plugins/flutter_inappwebview/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
-  - share (from `.symlinks/plugins/share/ios`)
-  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
-  - youtube_player (from `.symlinks/plugins/youtube_player/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+
+SPEC REPOS:
+  trunk:
+    - OrderedSet
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: Flutter
+  flutter_inappwebview:
+    :path: ".symlinks/plugins/flutter_inappwebview/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
-  share:
-    :path: ".symlinks/plugins/share/ios"
-  url_launcher:
-    :path: ".symlinks/plugins/url_launcher/ios"
-  youtube_player:
-    :path: ".symlinks/plugins/youtube_player/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  package_info: d7c98b64f60add4c2908b9d94d82a45d3c8827ad
-  share: 222b5dcc8031238af9d7de91149df65bad1aef75
-  url_launcher: 92b89c1029a0373879933c21642958c874539095
-  youtube_player: d62ec45e4304c691738f7319d7a6f1876ceedfb8
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_inappwebview: 3d32228f1304635e7c028b0d4252937730bbc6cf
+  OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
+  package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
+  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
-PODFILE CHECKSUM: b7d0755641915265774624f3b3be49c5c073d379
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.16.2

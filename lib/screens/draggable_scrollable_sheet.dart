@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_widget_guide/utils.dart';
 
 import '../Ads.dart';
@@ -14,7 +13,6 @@ class DraggableScrollableSheetWidget extends StatefulWidget {
 
 class _DraggableScrollableSheetWidgetState
     extends State<DraggableScrollableSheetWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden
@@ -74,7 +72,7 @@ class _DraggableScrollableSheetWidgetState
                         title: Text(
                           'Item $index',
                           style: TextStyle(
-                              color: Theme.of(context).backgroundColor),
+                              color: Theme.of(context).colorScheme.background),
                         ),
                       );
                     },

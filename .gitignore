@@ -24,3 +24,5 @@ android/**/GeneratedPluginRegistrant.java
 android/key.properties
 android/app/google-services.json
 *.jks
+.flutter-plugins-dependencies
+pubspec.lock

@@ -13,7 +13,7 @@ class AnimatedIconWidget extends StatefulWidget {
 
 class _AnimatedIconWidgetState extends State<AnimatedIconWidget>
     with TickerProviderStateMixin {
-  AnimationController _controller1;
+  late AnimationController _controller1;
   String speedFabText = "Slowly";
 
   @override
@@ -27,7 +27,6 @@ class _AnimatedIconWidgetState extends State<AnimatedIconWidget>
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-
 
     //Hide banner ad if it isn't already hidden
     Ads.hideBannerAd();
@@ -152,13 +151,13 @@ class _AnimatedIconWidgetState extends State<AnimatedIconWidget>
                       heroTag: "speed",
                       backgroundColor: Colors.white,
                       onPressed: () => setState(() {
-                        _controller1.duration.inSeconds == 2
+                        _controller1.duration?.inSeconds == 2
                             ? _controller1.duration =
                                 const Duration(seconds: 10)
                             : _controller1.duration =
                                 const Duration(seconds: 2);
 
-                        _controller1.duration.inSeconds == 2
+                        _controller1.duration?.inSeconds == 2
                             ? speedFabText = "Slowly"
                             : speedFabText = "Normal";
                       }),

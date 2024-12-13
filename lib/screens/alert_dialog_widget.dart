@@ -12,7 +12,6 @@ class AlertDialogWidget extends StatefulWidget {
 }
 
 class _AlertDialogWidgetState extends State<AlertDialogWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden
@@ -53,8 +52,10 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: RaisedButton(
-                  color: Theme.of(context).backgroundColor,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                  ),
                   child: Text(
                     "Cupertino",
                     style: TextStyle(color: Theme.of(context).primaryColor),
@@ -85,8 +86,10 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: RaisedButton(
-                  color: Theme.of(context).backgroundColor,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                  ),
                   child: Text(
                     "Material",
                     style: TextStyle(color: Theme.of(context).primaryColor),
@@ -100,8 +103,11 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
                         title: Text("Accept Changes?"),
                         content: Text("Choose one"),
                         actions: <Widget>[
-                          FlatButton(
-                            color: Theme.of(context).backgroundColor,
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.background,
+                            ),
                             child: Text(
                               "No",
                               style: TextStyle(
@@ -109,8 +115,11 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
                             ),
                             onPressed: () => Navigator.pop(context),
                           ),
-                          FlatButton(
-                            color: Theme.of(context).backgroundColor,
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.background,
+                            ),
                             child: Text(
                               "Yes",
                               style: TextStyle(

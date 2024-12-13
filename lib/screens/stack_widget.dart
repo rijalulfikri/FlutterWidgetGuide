@@ -50,7 +50,7 @@ class _StackWidgetState extends State<StackWidget> {
             margin: EdgeInsets.all(18.0),
             child: Center(
               child: Stack(
-                overflow: Overflow.clip,
+                clipBehavior: Clip.hardEdge,
                 alignment: _alignment,
                 children: <Widget>[
                   Container(
@@ -78,7 +78,7 @@ class _StackWidgetState extends State<StackWidget> {
               child: Text(
                 'Select Alignment',
                 style: TextStyle(
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: Utils.ubuntuRegularFont),
@@ -131,7 +131,9 @@ class _OptionItem<T> extends StatelessWidget {
             value: value,
             groupValue: groupValue,
             activeColor: Colors.lightBlue,
-            onChanged: onChanged),
+            onChanged: (T? v) {
+              if (v != null) onChanged(v);
+            }),
         GestureDetector(
           onTap: () {
             onChanged(value);
