@@ -1,13 +1,13 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_widget_guide/bloc/list_bloc.dart';
 import 'package:flutter_widget_guide/model/list_Item.dart';
 import 'package:flutter_widget_guide/utils.dart';
 import 'package:flutter_widget_guide/widgets/home_list_item.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Ads.dart';
 import '../profile_screen.dart';
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   String appLink =
       "https://play.google.com/store/apps/details?id=com.annsh.flutterwidgetguide";
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  late FirebaseMessaging _fcm;
+  // late FirebaseMessaging _fcm;
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
     //Initialize Firebase Admob
     Ads.initialize();
-    _fcm = FirebaseMessaging.instance;
+    // _fcm = FirebaseMessaging.instance;
     Utils.getVersion().then((value) {
       versionNumber = value;
     });
@@ -84,82 +84,82 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
     /// To check if the user is already subscribed to the topic
     _getIsSubscribed().then((isSubscribed) {
-      if (!isSubscribed) {
-        _fcm.subscribeToTopic("learn").then((value) {
-          _setIsSubscribed(true);
-        }, onError: (e) {
-          _setIsSubscribed(false);
-        });
-      }
+      // if (!isSubscribed) {
+      //   _fcm.subscribeToTopic("learn").then((value) {
+      //     _setIsSubscribed(true);
+      //   }, onError: (e) {
+      //     _setIsSubscribed(false);
+      //   });
+      // }
     });
 
     //_getIsFcmConfigured().then((value) {
     // if (!value) {
     // Handle foreground messages
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          content: ListTile(
-            title: Text("A new message from the developer!"),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Text("Click open to visit the link"),
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: Text(
-                'Cancel',
-                style: TextStyle(color: Colors.grey[500]),
-              ),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-            TextButton(
-              child: Text('Open'),
-              onPressed: () {
-                Navigator.of(context).pop();
-                _takeNotificationAction(message.data, context, true);
-              },
-            ),
-          ],
-        ),
-      );
-    });
+    // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    //   showDialog(
+    //     context: context,
+    //     builder: (context) => AlertDialog(
+    //       content: ListTile(
+    //         title: Text("A new message from the developer!"),
+    //         subtitle: Padding(
+    //           padding: const EdgeInsets.only(top: 8.0),
+    //           child: Text("Click open to visit the link"),
+    //         ),
+    //       ),
+    //       actions: <Widget>[
+    //         TextButton(
+    //           child: Text(
+    //             'Cancel',
+    //             style: TextStyle(color: Colors.grey[500]),
+    //           ),
+    //           onPressed: () => Navigator.of(context).pop(),
+    //         ),
+    //         TextButton(
+    //           child: Text('Open'),
+    //           onPressed: () {
+    //             Navigator.of(context).pop();
+    //             _takeNotificationAction(message.data, context, true);
+    //           },
+    //         ),
+    //       ],
+    //     ),
+    //   );
+    // });
 
     // Handle background messages
-    FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
+    // FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
 
     // Handle when app is opened from terminated state
-    FirebaseMessaging.instance
-        .getInitialMessage()
-        .then((RemoteMessage? message) {
-      if (message != null) {
-        _takeNotificationAction(message.data, context, false);
-      }
-    });
+    // FirebaseMessaging.instance
+    //     .getInitialMessage()
+    //     .then((RemoteMessage? message) {
+    //   if (message != null) {
+    //     _takeNotificationAction(message.data, context, false);
+    //   }
+    // });
 
     // Handle when app is opened from background state
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      _takeNotificationAction(message.data, context, false);
-    });
+    // FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+    //   _takeNotificationAction(message.data, context, false);
+    // });
   }
   // }
   //});
   // }
 
 // Background message handler must be a top-level function
-  @pragma('vm:entry-point')
-  Future<void> _backgroundMessageHandler(RemoteMessage message) async {
-    // Handle background message
-    if (message.data.containsKey('data')) {
-      // Handle data message
-    }
+  // @pragma('vm:entry-point')
+  // Future<void> _backgroundMessageHandler(RemoteMessage message) async {
+  //   // Handle background message
+  //   if (message.data.containsKey('data')) {
+  //     // Handle data message
+  //   }
 
-    if (message.data.containsKey('notification')) {
-      // Handle notification message
-    }
-  }
+  //   if (message.data.containsKey('notification')) {
+  //     // Handle notification message
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -373,20 +373,20 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   /// Setup remote config and fetch value of key: current_version
   setupRemoteConfig() async {
-    final remoteConfig = FirebaseRemoteConfig.instance;
-    // Enable developer mode to relax fetch throttling
-    // TODO: remove in prod / Enable in debug mode for faster testing
-    //remoteConfig.setConfigSettings(RemoteConfigSettings(debugMode: true));
-    /// if network is weak and fetching fails, set default value
-    remoteConfig.setDefaults(<String, dynamic>{
-      'current_version': versionNumber,
-    });
-    await remoteConfig.fetchAndActivate();
-    if (remoteConfig.getString("current_version") != versionNumber) {
-      buildSnakbar();
-    } else {
-      //do nothing
-    }
+    // final remoteConfig = FirebaseRemoteConfig.instance;
+    // // Enable developer mode to relax fetch throttling
+    // // TODO: remove in prod / Enable in debug mode for faster testing
+    // //remoteConfig.setConfigSettings(RemoteConfigSettings(debugMode: true));
+    // /// if network is weak and fetching fails, set default value
+    // remoteConfig.setDefaults(<String, dynamic>{
+    //   'current_version': versionNumber,
+    // });
+    // await remoteConfig.fetchAndActivate();
+    // if (remoteConfig.getString("current_version") != versionNumber) {
+    //   buildSnakbar();
+    // } else {
+    //   //do nothing
+    // }
   }
 
   /// Build a snackbar to notify user that a new update is available
