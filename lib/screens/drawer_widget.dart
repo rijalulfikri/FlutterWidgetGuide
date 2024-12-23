@@ -55,20 +55,22 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text('Open Drawer (from left)'),
-                  color: Theme.of(context).backgroundColor,
-                  textColor: Theme.of(context).accentColor,
-                  onPressed: () => _scaffoldKey.currentState.openDrawer(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                  ),
+                  onPressed: () => _scaffoldKey.currentState?.openDrawer(),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text('Open Drawer (from right)'),
-                  color: Theme.of(context).backgroundColor,
-                  textColor: Theme.of(context).accentColor,
-                  onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                  ),
+                  onPressed: () => _scaffoldKey.currentState?.openEndDrawer(),
                 ),
               )
             ],
@@ -88,7 +90,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             child: Center(
               child: Text(
                 "Drawer Header",
-                style: TextStyle(color: Theme.of(context).accentColor),
+                style: TextStyle(color: Theme.of(context).colorScheme.primary),
               ),
             ),
           ),
@@ -106,11 +108,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           title: Text("List item 4"),
         ),
         Center(
-          child: FlatButton(
-            shape: RoundedRectangleBorder(
-                side: BorderSide(
-                    color: Colors.blue, width: 1, style: BorderStyle.solid),
-                borderRadius: BorderRadius.circular(50)),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.background,
+            ),
             child: Text("Click to dismiss"),
             onPressed: () => Navigator.of(context).pop(),
           ),

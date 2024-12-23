@@ -11,7 +11,6 @@ class ConstrainedBoxWidget extends StatefulWidget {
 }
 
 class _ConstrainedBoxWidgetState extends State<ConstrainedBoxWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden

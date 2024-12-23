@@ -44,7 +44,7 @@ class _ExpandedWidgetState extends State<ExpandedWidget> {
           IconButton(
             icon: Icon(
               Icons.info_outline,
-              color: Theme.of(context).backgroundColor,
+              color: Theme.of(context).colorScheme.background,
             ),
             onPressed: () => showDialog(
               context: context,
@@ -61,11 +61,13 @@ class _ExpandedWidgetState extends State<ExpandedWidget> {
                             fontWeight: FontWeight.bold,
                             fontFamily: Utils.ubuntuRegularFont),
                       ),
-                      FlatButton(
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.background,
+                        ),
                         onPressed: () =>
                             Utils.launchURL(Utils.expandedSourceURL),
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
                         // makes highlight invisible too
                         child: Text('(Source Code)',
                             style: TextStyle(
@@ -187,9 +189,10 @@ class _ExpandedWidgetState extends State<ExpandedWidget> {
             ///Click on this button to RESET the values of flex values
             Container(
               margin: EdgeInsets.all(16.0),
-              child: RaisedButton(
-                textColor: Colors.white,
-                color: Colors.red,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                ),
                 onPressed: () => setState(() {
                   _flexFactor0 = 1;
                   _flexFactor1 = 2;

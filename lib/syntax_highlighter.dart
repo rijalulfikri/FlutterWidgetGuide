@@ -3,14 +3,14 @@ import 'package:string_scanner/string_scanner.dart';
 
 class SyntaxHighlighterStyle {
   SyntaxHighlighterStyle({
-    this.baseStyle,
-    this.numberStyle,
-    this.commentStyle,
-    this.keywordStyle,
-    this.stringStyle,
-    this.punctuationStyle,
-    this.classStyle,
-    this.constantStyle,
+    required this.baseStyle,
+    required this.numberStyle,
+    required this.commentStyle,
+    required this.keywordStyle,
+    required this.stringStyle,
+    required this.punctuationStyle,
+    required this.classStyle,
+    required this.constantStyle,
   });
 
   static SyntaxHighlighterStyle lightThemeStyle() {
@@ -54,10 +54,11 @@ abstract class SyntaxHighlighter {
 }
 
 class DartSyntaxHighlighter extends SyntaxHighlighter {
-  DartSyntaxHighlighter([this._style]) {
-    _spans = <_HighlightSpan>[];
-    _style ??= SyntaxHighlighterStyle.darkThemeStyle();
-  }
+  DartSyntaxHighlighter([SyntaxHighlighterStyle? style])
+      : _style = style ?? SyntaxHighlighterStyle.darkThemeStyle(),
+        _spans = <_HighlightSpan>[],
+        _scanner = StringScanner(''),
+        _src = '';
 
   SyntaxHighlighterStyle _style;
 
@@ -172,20 +173,20 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r'/\*(.|\n)*\*/'))) {
         _spans.add(_HighlightSpan(
           _HighlightType.comment,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
 
       // Line comments
       if (_scanner.scan('//')) {
-        final int startComment = _scanner.lastMatch.start;
+        final int startComment = _scanner.lastMatch!.start;
 
         bool eof = false;
         int endComment;
         if (_scanner.scan(RegExp(r'.*\n'))) {
-          endComment = _scanner.lastMatch.end - 1;
+          endComment = _scanner.lastMatch!.end - 1;
         } else {
           eof = true;
           endComment = _src.length;
@@ -206,8 +207,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r'r".*"'))) {
         _spans.add(_HighlightSpan(
           _HighlightType.string,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -216,8 +217,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r"r'.*'"))) {
         _spans.add(_HighlightSpan(
           _HighlightType.string,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -226,8 +227,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r'"""(?:[^"\\]|\\(.|\n))*"""'))) {
         _spans.add(_HighlightSpan(
           _HighlightType.string,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -236,8 +237,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r"'''(?:[^'\\]|\\(.|\n))*'''"))) {
         _spans.add(_HighlightSpan(
           _HighlightType.string,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -246,8 +247,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
         _spans.add(_HighlightSpan(
           _HighlightType.string,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -256,8 +257,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
         _spans.add(_HighlightSpan(
           _HighlightType.string,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -266,8 +267,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r'\d+\.\d+'))) {
         _spans.add(_HighlightSpan(
           _HighlightType.number,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -275,7 +276,7 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       // Integer
       if (_scanner.scan(RegExp(r'\d+'))) {
         _spans.add(_HighlightSpan(_HighlightType.number,
-            _scanner.lastMatch.start, _scanner.lastMatch.end));
+            _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
 
@@ -283,8 +284,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r'[\[\]{}().!=<>&\|\?\+\-\*/%\^~;:,]'))) {
         _spans.add(_HighlightSpan(
           _HighlightType.punctuation,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
@@ -293,17 +294,17 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
       if (_scanner.scan(RegExp(r'@\w+'))) {
         _spans.add(_HighlightSpan(
           _HighlightType.keyword,
-          _scanner.lastMatch.start,
-          _scanner.lastMatch.end,
+          _scanner.lastMatch!.start,
+          _scanner.lastMatch!.end,
         ));
         continue;
       }
 
       // Words
       if (_scanner.scan(RegExp(r'\w+'))) {
-        _HighlightType type;
+        _HighlightType? type;
 
-        String word = _scanner.lastMatch[0];
+        String word = _scanner.lastMatch![0]!;
         if (word.startsWith('_')) word = word.substring(1);
 
         if (_keywords.contains(word))
@@ -320,8 +321,8 @@ class DartSyntaxHighlighter extends SyntaxHighlighter {
         if (type != null) {
           _spans.add(_HighlightSpan(
             type,
-            _scanner.lastMatch.start,
-            _scanner.lastMatch.end,
+            _scanner.lastMatch!.start,
+            _scanner.lastMatch!.end,
           ));
         }
       }

@@ -48,7 +48,7 @@ class _AbsorbPointerWidgetState extends State<AbsorbPointerWidget> {
                   ? _actionIcon = Icons.blur_off
                   : _actionIcon = Icons.blur_on;
 
-              _scaffoldKey.currentState.showSnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text("Absorbing Property changed to $_isAbsorbing"),
                   duration: Duration(milliseconds: 1000),
@@ -84,7 +84,7 @@ class _AbsorbPointerWidgetState extends State<AbsorbPointerWidget> {
                 child: Text(
                   "Absorb Pointer Enabled: $_isAbsorbing",
                   style: TextStyle(
-                      color: Theme.of(context).backgroundColor,
+                      color: Theme.of(context).colorScheme.background,
                       fontSize: 14.0,
                       fontFamily: Utils.ubuntuRegularFont),
                   textAlign: TextAlign.center,

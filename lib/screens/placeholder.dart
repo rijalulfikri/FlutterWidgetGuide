@@ -11,7 +11,6 @@ class PlaceholderWidget extends StatefulWidget {
 }
 
 class _PlaceholderWidgetState extends State<PlaceholderWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden

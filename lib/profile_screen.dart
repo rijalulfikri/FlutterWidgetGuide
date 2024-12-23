@@ -49,7 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: Utils.ubuntuRegularFont,
-                        color: Theme.of(context).backgroundColor),
+                        color: Theme.of(context).colorScheme.background),
                   ),
                 ),
               ),
@@ -98,9 +98,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           'assets/images/twitter.png',
                           "https://twitter.com/annsh2013"),
                     ),
-                    RaisedButton(
-                      textColor: Colors.black87,
-                      color: Colors.blue[500],
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.black87,
+                        backgroundColor: Colors.blue[500],
+                      ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -122,9 +124,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ),
                       onPressed: () => Utils.launchURL(appLink),
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
-                      ),
                     )
                   ],
                 ),
@@ -142,7 +141,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold,
                       fontFamily: Utils.ubuntuRegularFont,
-                      color: Theme.of(context).backgroundColor),
+                      color: Theme.of(context).colorScheme.background),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 12.0),
@@ -156,7 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             fontFamily: Utils.ubuntuRegularFont,
-                            color: Theme.of(context).backgroundColor),
+                            color: Theme.of(context).colorScheme.background),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 6.0, right: 6.0),
@@ -172,7 +171,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
                             fontFamily: Utils.ubuntuRegularFont,
-                            color: Theme.of(context).backgroundColor),
+                            color: Theme.of(context).colorScheme.background),
                       ),
                     ],
                   ),
@@ -206,16 +205,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).backgroundColor,
+                            color: Theme.of(context).colorScheme.background,
                             fontFamily: Utils.ubuntuRegularFont),
                       ),
                     ),
                   ),
                 ],
               ),
-              RaisedButton(
-                textColor: Colors.white,
-                color: Colors.red,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.red,
+                ),
                 child: Row(
                   children: <Widget>[
                     Padding(
@@ -237,9 +238,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 onPressed: () => Utils.launchURL(
                     "mailto:annsh29@gmail.com?subject=Contact query from: Flutter Widget Guide&body=Hi Annsh, \n"),
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
-                ),
               ),
             ],
           ),
@@ -247,9 +245,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       );
 
   Widget socialMediaLinks(String label, String imagePath, String url) =>
-      RaisedButton(
-        textColor: Colors.black87,
-        color: Colors.white,
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.black87,
+          backgroundColor: Colors.white,
+        ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -272,8 +272,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
         onPressed: () => Utils.launchURL(url),
-        shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(30.0),
-        ),
       );
 }

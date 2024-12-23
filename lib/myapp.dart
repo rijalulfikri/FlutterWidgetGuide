@@ -100,15 +100,17 @@ class MyApp extends StatelessWidget {
     /// determine the basic app settings to be applied whenever the app is
     /// launched.
     return FutureBuilder<SharedPreferences>(
-      future: SharedPreferences.getInstance(),
-      builder:
-          (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
-        return ChangeNotifierProvider<Settings>.value(
-          value: Settings(snapshot.data),
-          child: _MyApp(),
-        );
-      },
-    );
+        future: SharedPreferences.getInstance(),
+        builder:
+            (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+          if (!snapshot.hasData) {
+            return Container(); // Return empty container while loading
+          }
+          return ChangeNotifierProvider<Settings>.value(
+            value: Settings(snapshot.data!),
+            child: _MyApp(),
+          );
+        });
   }
 }
 
@@ -207,21 +209,27 @@ class _MyApp extends StatelessWidget {
             DraggableScrollableSheetWidget(),
         Utils.colorFiltered: (BuildContext context) => ColorFilteredWidget(),
         Utils.toggleButtons: (BuildContext context) => ToggleButtonsWidget(),
-        Utils.cupertinoActionSheet: (BuildContext context) => CupertinoActionSheetWidget(),
-        Utils.tweenAnimationBuilder: (BuildContext context) => TweenAnimationBuilderWidget(),
+        Utils.cupertinoActionSheet: (BuildContext context) =>
+            CupertinoActionSheetWidget(),
+        Utils.tweenAnimationBuilder: (BuildContext context) =>
+            TweenAnimationBuilderWidget(),
         Utils.image: (BuildContext context) => ImageWidget(),
         Utils.tabs: (BuildContext context) => TabsWidget(),
         Utils.drawer: (BuildContext context) => DrawerWidget(),
         Utils.snackBar: (BuildContext context) => SnackBarWidget(),
-        Utils.listWheelScrollView: (BuildContext context) => ListWheelScrollViewWidget(),
+        Utils.listWheelScrollView: (BuildContext context) =>
+            ListWheelScrollViewWidget(),
         Utils.shaderMask: (BuildContext context) => ShaderMaskWidget(),
-        Utils.notificationListener: (BuildContext context) => NotificationListenerWidget(),
+        Utils.notificationListener: (BuildContext context) =>
+            NotificationListenerWidget(),
         Utils.builder: (BuildContext context) => BuilderWidget(),
         Utils.clipPath: (BuildContext context) => ClipPathWidget(),
-        Utils.circularProgressIndicator: (BuildContext context) => CircularProgressIndicatorWidget(),
+        Utils.circularProgressIndicator: (BuildContext context) =>
+            CircularProgressIndicatorWidget(),
         Utils.divider: (BuildContext context) => DividerWidget(),
         Utils.ignorePointer: (BuildContext context) => IgnorePointerWidget(),
-        Utils.cupertinoActivityIndicator: (BuildContext context) => CupertinoActivityIndicatorWidget(),
+        Utils.cupertinoActivityIndicator: (BuildContext context) =>
+            CupertinoActivityIndicatorWidget(),
         Utils.clipOval: (BuildContext context) => ClipOvalWidget(),
         Utils.animatedWidget: (BuildContext context) => AnimatedWidgett(),
         Utils.padding: (BuildContext context) => PaddingWidget()

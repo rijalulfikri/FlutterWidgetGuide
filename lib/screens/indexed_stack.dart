@@ -56,7 +56,7 @@ class _IndexedStackWidgetState extends State<IndexedStackWidget> {
               "between the indexes in an Indexed Stack. Increase the count or "
               "change the Flutter logo color by tapping it to observe it.",
               style: TextStyle(
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   fontSize: 14.0,
                   fontFamily: Utils.ubuntuRegularFont),
               textAlign: TextAlign.center,
@@ -93,11 +93,13 @@ class _IndexedStackWidgetState extends State<IndexedStackWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(18.0),
-                            child: RaisedButton(
+                            child: ElevatedButton(
                               onPressed: () =>
                                   setState(() => count = count = count + 1),
-                              color: Colors.black,
-                              textColor: Colors.white,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.black,
+                                foregroundColor: Colors.white,
+                              ),
                               child: Text("Press me"),
                             ),
                           )
@@ -111,7 +113,7 @@ class _IndexedStackWidgetState extends State<IndexedStackWidget> {
                       child: GestureDetector(
                         child: FlutterLogo(
                           duration: Duration(milliseconds: 500),
-                          colors: _imageColor,
+                          // colors: _imageColor,
                           curve: Curves.easeInOut,
                         ),
                         onTap: () => setState(() => _imageColor == Colors.blue
@@ -128,25 +130,34 @@ class _IndexedStackWidgetState extends State<IndexedStackWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () =>
                     _widgetIndex == 0 ? null : setState(() => _widgetIndex = 0),
-                color: _widgetIndex == 0 ? Colors.grey : Colors.blue,
-                textColor: Colors.white,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      _widgetIndex == 0 ? Colors.grey : Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
                 child: Text("Index 0"),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () =>
                     _widgetIndex == 1 ? null : setState(() => _widgetIndex = 1),
-                color: _widgetIndex == 1 ? Colors.grey : Colors.blue,
-                textColor: Colors.white,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      _widgetIndex == 1 ? Colors.grey : Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
                 child: Text("Index 1"),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () =>
                     _widgetIndex == 2 ? null : setState(() => _widgetIndex = 2),
-                color: _widgetIndex == 2 ? Colors.grey : Colors.blue,
-                textColor: Colors.white,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      _widgetIndex == 2 ? Colors.grey : Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
                 child: Text("Index 2"),
               ),
             ],

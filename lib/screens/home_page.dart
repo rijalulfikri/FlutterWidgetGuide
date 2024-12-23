@@ -1,13 +1,13 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_widget_guide/bloc/list_bloc.dart';
 import 'package:flutter_widget_guide/model/list_Item.dart';
 import 'package:flutter_widget_guide/utils.dart';
 import 'package:flutter_widget_guide/widgets/home_list_item.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Ads.dart';
 import '../profile_screen.dart';
@@ -20,16 +20,16 @@ class HomePage extends StatefulWidget {
 
 /// WidgetsBindingObserver helps to keep track of the app lifecycle state
 class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
-  BuildContext _buildContext;
-  var versionNumber;
+  late BuildContext _buildContext;
+  late var versionNumber;
   bool isFabVisible = true;
   bool hasJoinedSlack = false;
-  ScrollController _hideButtonController;
+  late ScrollController _hideButtonController;
   bool isCheckBoxChecked = false;
   String appLink =
       "https://play.google.com/store/apps/details?id=com.annsh.flutterwidgetguide";
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  FirebaseMessaging _fcm;
+  // late FirebaseMessaging _fcm;
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
     //Initialize Firebase Admob
     Ads.initialize();
-    _fcm = FirebaseMessaging();
+    // _fcm = FirebaseMessaging.instance;
     Utils.getVersion().then((value) {
       versionNumber = value;
     });
@@ -84,64 +84,82 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
     /// To check if the user is already subscribed to the topic
     _getIsSubscribed().then((isSubscribed) {
-      if (!isSubscribed) {
-        _fcm.subscribeToTopic("learn").then((value) {
-          _setIsSubscribed(true);
-        }, onError: (e) {
-          _setIsSubscribed(false);
-        });
-      }
+      // if (!isSubscribed) {
+      //   _fcm.subscribeToTopic("learn").then((value) {
+      //     _setIsSubscribed(true);
+      //   }, onError: (e) {
+      //     _setIsSubscribed(false);
+      //   });
+      // }
     });
 
     //_getIsFcmConfigured().then((value) {
     // if (!value) {
-    _fcm.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        /// Called whenever the app is in foreground and receives a notification
-        /// A dialog box is shown to the user in this case
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            content: ListTile(
-              title: Text("A new message from the developer!"),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text("Click open to visit the link"),
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                child: Text(
-                  'Cancel',
-                  style: TextStyle(color: Colors.grey[500]),
-                ),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              FlatButton(
-                child: Text('Open'),
-                onPressed: () => {
-                  Navigator.of(context).pop(),
-                  _takeNotificationAction(message, context, true),
-                },
-              ),
-            ],
-          ),
-        );
-      },
-      onBackgroundMessage: backgroundHandle,
-      onLaunch: (Map<String, dynamic> message) async {
-        /// Called whenever the app is killed and receives a notification
-        _takeNotificationAction(message, context, false);
-      },
-      onResume: (Map<String, dynamic> message) async {
-        /// Called whenever the app is running in background
-        /// and receives a notification
-        _takeNotificationAction(message, context, false);
-      },
-    );
-    // }
-    //});
+    // Handle foreground messages
+    // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    //   showDialog(
+    //     context: context,
+    //     builder: (context) => AlertDialog(
+    //       content: ListTile(
+    //         title: Text("A new message from the developer!"),
+    //         subtitle: Padding(
+    //           padding: const EdgeInsets.only(top: 8.0),
+    //           child: Text("Click open to visit the link"),
+    //         ),
+    //       ),
+    //       actions: <Widget>[
+    //         TextButton(
+    //           child: Text(
+    //             'Cancel',
+    //             style: TextStyle(color: Colors.grey[500]),
+    //           ),
+    //           onPressed: () => Navigator.of(context).pop(),
+    //         ),
+    //         TextButton(
+    //           child: Text('Open'),
+    //           onPressed: () {
+    //             Navigator.of(context).pop();
+    //             _takeNotificationAction(message.data, context, true);
+    //           },
+    //         ),
+    //       ],
+    //     ),
+    //   );
+    // });
+
+    // Handle background messages
+    // FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
+
+    // Handle when app is opened from terminated state
+    // FirebaseMessaging.instance
+    //     .getInitialMessage()
+    //     .then((RemoteMessage? message) {
+    //   if (message != null) {
+    //     _takeNotificationAction(message.data, context, false);
+    //   }
+    // });
+
+    // Handle when app is opened from background state
+    // FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+    //   _takeNotificationAction(message.data, context, false);
+    // });
   }
+  // }
+  //});
+  // }
+
+// Background message handler must be a top-level function
+  // @pragma('vm:entry-point')
+  // Future<void> _backgroundMessageHandler(RemoteMessage message) async {
+  //   // Handle background message
+  //   if (message.data.containsKey('data')) {
+  //     // Handle data message
+  //   }
+
+  //   if (message.data.containsKey('notification')) {
+  //     // Handle notification message
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -212,14 +230,18 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: OutlineButton(
-                                    child: Text("Get an Invite"),
-                                    onPressed: () => Utils.launchURL(
-                                        "${Utils.slack_invite}"),
-                                    borderSide: BorderSide(color: Colors.blue),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(30.0))),
+                                child: TextButton(
+                                  child: Text("Get an Invite"),
+                                  onPressed: () =>
+                                      Utils.launchURL("${Utils.slack_invite}"),
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.blue,
+                                    foregroundColor: Colors.white,
+                                  ),
+                                  // shape: RoundedRectangleBorder(
+                                  //     borderRadius:
+                                  //         BorderRadius.circular(30.0))
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -231,13 +253,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                     Checkbox(
                                       value: isCheckBoxChecked,
                                       activeColor: Colors.blue,
-                                      onChanged: (bool isChecked) {
+                                      onChanged: (bool? isChecked) {
                                         setState(
                                           () {
-                                            isCheckBoxChecked = isChecked;
+                                            isCheckBoxChecked =
+                                                isChecked ?? false;
                                           },
                                         );
-                                        _hideFabForever(isChecked);
+                                        _hideFabForever(isChecked ?? false);
                                       },
                                     ),
                                   ],
@@ -272,7 +295,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                       padding: EdgeInsets.all(4.0),
                     ),
                     SliverPadding(
-                      sliver: bodyList(snapshot.data),
+                      sliver: bodyList(snapshot.data ?? []),
                       padding: EdgeInsets.only(bottom: 12.0),
                     ),
                   ],
@@ -300,7 +323,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 padding: const EdgeInsets.only(right: 12.0, left: 8.0),
                 child: GestureDetector(
                   child: FlutterLogo(
-                    colors: Colors.cyan,
                     textColor: Colors.white,
                   ),
                   onTap: () => Navigator.push(
@@ -351,26 +373,25 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   /// Setup remote config and fetch value of key: current_version
   setupRemoteConfig() async {
-    final RemoteConfig remoteConfig = await RemoteConfig.instance;
-    // Enable developer mode to relax fetch throttling
-    // TODO: remove in prod / Enable in debug mode for faster testing
-    //remoteConfig.setConfigSettings(RemoteConfigSettings(debugMode: true));
-    /// if network is weak and fetching fails, set default value
-    remoteConfig.setDefaults(<String, dynamic>{
-      'current_version': versionNumber,
-    });
-    await remoteConfig.fetch(expiration: const Duration(hours: 5));
-    await remoteConfig.activateFetched();
-    if (remoteConfig.getString("current_version") != versionNumber) {
-      buildSnakbar();
-    } else {
-      //do nothing
-    }
+    // final remoteConfig = FirebaseRemoteConfig.instance;
+    // // Enable developer mode to relax fetch throttling
+    // // TODO: remove in prod / Enable in debug mode for faster testing
+    // //remoteConfig.setConfigSettings(RemoteConfigSettings(debugMode: true));
+    // /// if network is weak and fetching fails, set default value
+    // remoteConfig.setDefaults(<String, dynamic>{
+    //   'current_version': versionNumber,
+    // });
+    // await remoteConfig.fetchAndActivate();
+    // if (remoteConfig.getString("current_version") != versionNumber) {
+    //   buildSnakbar();
+    // } else {
+    //   //do nothing
+    // }
   }
 
   /// Build a snackbar to notify user that a new update is available
   buildSnakbar() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text("Update Available"),
       duration: Duration(seconds: 10),
       backgroundColor: Colors.green,
@@ -397,7 +418,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       if (prefs.getBool('hidefab') != null) {
-        hasJoinedSlack = prefs.getBool('hidefab');
+        hasJoinedSlack = prefs.getBool('hidefab') ?? false;
       } else {
         hasJoinedSlack = false;
       }
@@ -422,7 +443,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
 /// Use this method to define some kind of a background task
 /// We are not using it, only here for learning purpose
-Future<dynamic> backgroundHandle(Map<String, dynamic> message) {
+Future<void> backgroundHandle(Map<String, dynamic> message) async {
   if (message.containsKey('data')) {
     // Handle data message
   }

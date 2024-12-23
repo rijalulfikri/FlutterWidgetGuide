@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../Ads.dart';
 import '../Code.dart';
@@ -9,7 +8,7 @@ import '../utils.dart';
 class WebViewWidget extends StatefulWidget {
   final url;
 
-  WebViewWidget({Key key, @required this.url}) : super(key: key);
+  WebViewWidget({Key? key, @required this.url}) : super(key: key);
 
   @override
   _WebViewWidgetState createState() => _WebViewWidgetState();
@@ -56,10 +55,10 @@ class _WebViewWidgetState extends State<WebViewWidget> {
       body: Column(
         children: [
           Expanded(
-            child: WebView(
+            child: WebViewWidget(
                 key: _key,
-                javascriptMode: JavascriptMode.unrestricted,
-                initialUrl: widget.url),
+                // javascriptMode: JavascriptMode.unrestricted,
+                url: widget.url),
           ),
         ],
       ),

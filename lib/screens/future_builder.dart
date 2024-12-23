@@ -57,7 +57,6 @@ class _FutureBuilderWidgetState extends State<FutureBuilderWidget> {
           future: _isButtonClicked ? getDemoResponse() : null,
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
-
               ///when the future is null
               case ConnectionState.none:
                 return Text(
@@ -84,7 +83,7 @@ class _FutureBuilderWidgetState extends State<FutureBuilderWidget> {
 
                 ///task is complete with some data
                 return Text(
-                  'Fetched Data:\n\n${snapshot.data.title}',
+                  'Fetched Data:\n\n${snapshot.data?.title ?? 'No data'}',
                   textAlign: TextAlign.center,
                 );
             }

@@ -67,7 +67,7 @@ class _AnimatedListWidgetState extends State<AnimatedListWidget> {
 
   Widget _buildItem(String item, Animation animation, int index) {
     return SizeTransition(
-      sizeFactor: animation,
+      sizeFactor: animation as Animation<double>,
       child: Card(
         elevation: 5.0,
         child: ListTile(
@@ -99,7 +99,7 @@ class _AnimatedListWidgetState extends State<AnimatedListWidget> {
     }
     String item = "Item ${insertIndex + 1}";
     _data.insert(insertIndex, item);
-    _listKey.currentState.insertItem(insertIndex);
+    _listKey.currentState?.insertItem(insertIndex);
   }
 
 //  void _insertMultipleItems() {
@@ -120,11 +120,12 @@ class _AnimatedListWidgetState extends State<AnimatedListWidget> {
     // This builder is just so that the animation has something
     // to work with before it disappears from view since the original
     // has already been deleted.
-    AnimatedListRemovedItemBuilder builder = (context, animation) {
+    Widget Function(BuildContext, Animation<double>) builder =
+        (context, animation) {
       // A method to build the Card widget.
       return _buildItem(removedItem, animation, removeAt);
     };
-    _listKey.currentState.removeItem(removeIndex, builder);
+    _listKey.currentState?.removeItem(removeIndex, builder);
   }
 
 //  void _removeMultipleItems() {

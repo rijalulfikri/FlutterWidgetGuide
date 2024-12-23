@@ -41,7 +41,8 @@ class _TweenAnimationBuilderWidgetState
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CodeScreen(code: Code.tweenAnimationBuilderWidgetCode),
+                builder: (context) =>
+                    CodeScreen(code: Code.tweenAnimationBuilderWidgetCode),
               ),
             ),
           )
@@ -54,21 +55,21 @@ class _TweenAnimationBuilderWidgetState
           ///Values for the Animation
           ///Type of tween (here: Color) should match the second parameter
           ///of the builder and the Class type parameter(if specified)
-          tween: ColorTween(begin: Colors.yellow, end: Colors.purple),
+          tween: Tween(begin: Colors.yellow, end: Colors.purple),
 
           /// Added child here as a performance optimization. Just so that
           /// flutter does not build the entire widget tree during the animation
           child: FlutterLogo(
             size: 200,
-            colors: Colors.yellow,
+            // colors: Colors.yellow,
           ),
-          builder: (BuildContext _, Color value, Widget child) {
+          builder: (BuildContext _, Color value, Widget? child) {
             return ColorFiltered(
               child: child,
               colorFilter: ColorFilter.mode(value, BlendMode.modulate),
             );
           },
-          onEnd: () => _scaffoldKey.currentState.showSnackBar(
+          onEnd: () => ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text("Done with the Animation"),
               duration: Duration(milliseconds: 3000),

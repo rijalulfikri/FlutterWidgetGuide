@@ -11,7 +11,6 @@ class SemanticsWidget extends StatefulWidget {
 }
 
 class _SemanticsWidgetState extends State<SemanticsWidget> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden

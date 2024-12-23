@@ -6,22 +6,25 @@ import '../utils.dart';
 
 class CircularProgressIndicatorWidget extends StatefulWidget {
   @override
-  _CircularProgressIndicatorWidgetState createState() => _CircularProgressIndicatorWidgetState();
+  _CircularProgressIndicatorWidgetState createState() =>
+      _CircularProgressIndicatorWidgetState();
 }
 
-class _CircularProgressIndicatorWidgetState extends State<CircularProgressIndicatorWidget>
+class _CircularProgressIndicatorWidgetState
+    extends State<CircularProgressIndicatorWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<Color> _colorTween;
-  var counterStream =
-      Stream<double>.periodic(Duration(milliseconds: 100), (x) => (x / 100).toDouble()).take(101);
+  late AnimationController _animationController;
+  late Animation<Color> _colorTween;
+  var counterStream = Stream<double>.periodic(
+      Duration(milliseconds: 100), (x) => (x / 100).toDouble()).take(101);
 
   void initState() {
     _animationController = AnimationController(
       duration: Duration(milliseconds: 1800),
       vsync: this,
     );
-    _colorTween = _animationController.drive(ColorTween(begin: Colors.green, end: Colors.red));
+    _colorTween = _animationController.drive(
+        ColorTween(begin: Colors.green, end: Colors.red)) as Animation<Color>;
     _animationController.repeat();
     super.initState();
   }
@@ -40,7 +43,9 @@ class _CircularProgressIndicatorWidgetState extends State<CircularProgressIndica
         title: Text(
           'ProgressIndicator Widget',
           style: TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: Utils.ubuntuRegularFont),
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: Utils.ubuntuRegularFont),
         ),
         actions: <Widget>[
           IconButton(
@@ -48,7 +53,8 @@ class _CircularProgressIndicatorWidgetState extends State<CircularProgressIndica
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CodeScreen(code: Code.progressIndicatorCode),
+                builder: (context) =>
+                    CodeScreen(code: Code.progressIndicatorCode),
               ),
             ),
           ),

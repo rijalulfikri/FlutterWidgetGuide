@@ -9,7 +9,6 @@ class ComingSoon extends StatefulWidget {
 }
 
 class _ComingSoonState extends State<ComingSoon> {
-
   @override
   void initState() {
     //Hide banner ad if it isn't already hidden

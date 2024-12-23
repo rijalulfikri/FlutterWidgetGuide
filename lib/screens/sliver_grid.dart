@@ -24,7 +24,7 @@ class SliverGridWidget extends StatelessWidget {
               title: Text(
                 "SliverGrid Widget",
                 style: TextStyle(
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: Utils.ubuntuRegularFont),

@@ -58,7 +58,7 @@ class _SizedBoxWidgetState extends State<SizedBoxWidget> {
                 child: SizedBox(
                   width: _dimentions[1],
                   height: _dimentions[0],
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text(
                       'Change my size',
                       textAlign: TextAlign.center,
@@ -67,7 +67,10 @@ class _SizedBoxWidgetState extends State<SizedBoxWidget> {
                     onPressed: () {
                       print("Pressed");
                     },
-                    color: Colors.indigo,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo,
+                      foregroundColor: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -117,7 +120,11 @@ class _OptionItem<T> extends StatelessWidget {
             value: value,
             groupValue: groupValue,
             activeColor: Colors.lightBlue,
-            onChanged: onChanged),
+            onChanged: (T? newValue) {
+              if (newValue != null) {
+                onChanged(newValue);
+              }
+            }),
         GestureDetector(
           onTap: () {
             onChanged(value);

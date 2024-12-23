@@ -63,7 +63,7 @@ class _TableWidgetState extends State<TableWidget> {
         padding: EdgeInsets.only(top: 12),
         child: Table(
           border: _isBorderEnabled
-              ? TableBorder.all(color: Theme.of(context).backgroundColor)
+              ? TableBorder.all(color: Theme.of(context).colorScheme.background)
               : null,
           defaultVerticalAlignment: TableCellVerticalAlignment.top,
           children: <TableRow>[

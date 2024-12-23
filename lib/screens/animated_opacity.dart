@@ -21,7 +21,6 @@ class _AnimatedOpacityWidgetState extends State<AnimatedOpacityWidget> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,8 +65,10 @@ class _AnimatedOpacityWidgetState extends State<AnimatedOpacityWidget> {
               child: Text("Opacity Value - ${opacityLevel.toString()}"),
             ),
             Container(
-              child: RaisedButton(
-                color: Theme.of(context).backgroundColor,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                ),
                 child: Text(
                   buttonText,
                   style: TextStyle(color: Theme.of(context).primaryColor),

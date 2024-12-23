@@ -6,15 +6,15 @@ class ListItem {
   String url;
   String mediumUrl;
   String videoUrl;
-  BuildContext context;
+  BuildContext? context;
   Color menuColor;
 
   ListItem(
-      {this.title,
+      {required this.title,
       this.context,
-      this.description,
-      this.url,
-      this.mediumUrl,
-      this.videoUrl,
+      required this.description,
+      required this.url,
+      required this.mediumUrl,
+      required this.videoUrl,
       this.menuColor = Colors.white});
 }

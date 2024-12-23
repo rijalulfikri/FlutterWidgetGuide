@@ -53,7 +53,7 @@ class _PageViewWidgetState extends State<PageViewWidget> {
                   actionIcon == Icons.swap_vert
                       ? actionIcon = Icons.swap_horiz
                       : actionIcon = Icons.swap_vert;
-                  _scaffoldKey.currentState.showSnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content:
                           Text("Scroll Direction changed to $scrollDirection"),

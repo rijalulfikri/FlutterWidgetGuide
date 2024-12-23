@@ -6,10 +6,12 @@ import '../utils.dart';
 
 class NotificationListenerWidget extends StatefulWidget {
   @override
-  _NotificationListenerWidgetState createState() => _NotificationListenerWidgetState();
+  _NotificationListenerWidgetState createState() =>
+      _NotificationListenerWidgetState();
 }
 
-class _NotificationListenerWidgetState extends State<NotificationListenerWidget> {
+class _NotificationListenerWidgetState
+    extends State<NotificationListenerWidget> {
   Color color = Colors.blue;
 
   @override
@@ -20,7 +22,9 @@ class _NotificationListenerWidgetState extends State<NotificationListenerWidget>
         title: Text(
           'NotificationListener Widget',
           style: TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: Utils.ubuntuRegularFont),
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: Utils.ubuntuRegularFont),
         ),
         actions: <Widget>[
           IconButton(
@@ -28,7 +32,8 @@ class _NotificationListenerWidgetState extends State<NotificationListenerWidget>
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CodeScreen(code: Code.notificationListenerCode),
+                builder: (context) =>
+                    CodeScreen(code: Code.notificationListenerCode),
               ),
             ),
           )
@@ -57,14 +62,16 @@ class _NotificationListenerWidgetState extends State<NotificationListenerWidget>
 class ChangeColor extends StatelessWidget {
   final Color bgColor;
 
-  ChangeColor({this.bgColor});
+  ChangeColor({required this.bgColor});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: FlatButton(
-        textColor: Colors.white,
-        color: bgColor,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: bgColor,
+        ),
         child: Text("Click to change my color"),
         onPressed: () {
           final randomColor = Utils.getRandomColor();
@@ -78,5 +85,5 @@ class ChangeColor extends StatelessWidget {
 class ColorNotification extends Notification {
   final Color color;
 
-  const ColorNotification({this.color});
+  const ColorNotification({required this.color});
 }

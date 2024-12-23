@@ -33,7 +33,7 @@ class Code {
                 ),
     
                 ///Press this button to toggle the value of _isEnabled variable
-                RaisedButton(
+                ElevatedButton(
                   textColor: Colors.white,
                   color: Colors.indigo,
                   onPressed: () => setState(() {
@@ -58,7 +58,7 @@ class Code {
       }
     } ''';
 
-  static const String expandedCode = ''' 
+  static const String expandedCode = '''
     class ExpandedWidget extends StatefulWidget {
       @override
       _ExpandedWidgetState createState() => _ExpandedWidgetState();
@@ -222,7 +222,7 @@ class Code {
                 ///Click on this button to RESET the values of flex values
                 Container(
                   margin: EdgeInsets.all(16.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     textColor: Colors.white,
                     color: Colors.red,
                     onPressed: () => setState(() {
@@ -404,7 +404,7 @@ class Code {
     );
    ''';
 
-  static const String animatedContainerCode = ''' 
+  static const String animatedContainerCode = '''
     class AnimatedContainerWidget extends StatefulWidget {
       @override
       _AnimatedContainerWidgetState createState() =>
@@ -514,7 +514,7 @@ class Code {
       }
     }''';
 
-  static const String opacityCode = ''' 
+  static const String opacityCode = '''
     class OpacityWidget extends StatefulWidget {
       @override
       _OpacityWidgetState createState() => _OpacityWidgetState();
@@ -706,7 +706,7 @@ class Code {
       margin: EdgeInsets.only(left: 10, right: 10, top: 28, bottom: 28),
     );''';
 
-  static const String futurBuilderCode = ''' 
+  static const String futurBuilderCode = '''
     class FutureBuilderWidget extends StatefulWidget {
       @override
       _FutureBuilderWidgetState createState() => _FutureBuilderWidgetState();
@@ -812,7 +812,7 @@ class Code {
       }
     }''';
 
-  static const String fadeTransitionCode = ''' 
+  static const String fadeTransitionCode = '''
     class FadeTransitionWidget extends StatefulWidget {
       @override
       _FadeTransitionWidgetState createState() => _FadeTransitionWidgetState();
@@ -919,7 +919,7 @@ class Code {
       }
     }''';
 
-  static const String fabCode = ''' 
+  static const String fabCode = '''
     class FloatingActionButtonWidget extends StatefulWidget {
       @override
       _FloatingActionButtonWidgetState createState() =>
@@ -1021,7 +1021,7 @@ class Code {
             ],
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () => _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("You clicked on the FAB"))),
+            onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You clicked on the FAB"))),
             child: Icon(Icons.add),
             foregroundColor: Colors.white,
             backgroundColor: Colors.orange,
@@ -1101,7 +1101,7 @@ class Code {
       margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
     );''';
 
-  static const String pageViewCode = ''' 
+  static const String pageViewCode = '''
     class PageViewWidget extends StatefulWidget {
       @override
       _PageViewWidgetState createState() => _PageViewWidgetState();
@@ -1142,7 +1142,7 @@ class Code {
                       actionIcon == Icons.swap_vert
                           ? actionIcon = Icons.swap_horiz
                           : actionIcon = Icons.swap_vert;
-                      _scaffoldKey.currentState.showSnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("Scroll Direction changed to scrollDirection"),
                           duration: Duration(milliseconds: 1000),
@@ -1233,7 +1233,7 @@ class Code {
       }
     }''';
 
-  static const String tableCode = ''' 
+  static const String tableCode = '''
     class TableWidget extends StatefulWidget {
       @override
       _TableWidgetState createState() => _TableWidgetState();
@@ -1414,7 +1414,7 @@ class Code {
       }
     }''';
 
-  static const String sliverAppBarCode = ''' 
+  static const String sliverAppBarCode = '''
       class SliverAppBarWidget extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -1544,7 +1544,7 @@ class Code {
           );
     }''';
 
-  static const String sliverListCode = ''' 
+  static const String sliverListCode = '''
       class SliverListWidget extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -1631,7 +1631,7 @@ class Code {
       );
     }''';
 
-  static const String sliverGridCode = ''' 
+  static const String sliverGridCode = '''
       class SliverGridWidget extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -1719,7 +1719,7 @@ class Code {
       );
     }''';
 
-  static const String fadeInImageCode = ''' 
+  static const String fadeInImageCode = '''
     class FadeInImageWidget extends StatefulWidget {
       @override
       _FadeInImageWidgetState createState() => _FadeInImageWidgetState();
@@ -1793,7 +1793,7 @@ class Code {
       }
     }''';
 
-  static const String streamBuilderCode = ''' 
+  static const String streamBuilderCode = '''
     class StreamBuilderWidget extends StatefulWidget {
       @override
       _StreamBuilderWidgetState createState() => _StreamBuilderWidgetState();
@@ -1910,7 +1910,7 @@ class Code {
       }
     }''';
 
-  static const String inheritedModelCode = ''' 
+  static const String inheritedModelCode = '''
     class InheritedModelWidget extends StatefulWidget {
       @override
       _InheritedModelWidgetState createState() => _InheritedModelWidgetState();
@@ -1972,7 +1972,7 @@ class Code {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.all(16.0),
-                        child: RaisedButton(
+                        child: ElevatedButton(
                           textColor: Colors.white,
                           color: Colors.black87,
                           onPressed: () => setState(() {
@@ -1983,7 +1983,7 @@ class Code {
                       ),
                       Container(
                         margin: EdgeInsets.all(16.0),
-                        child: RaisedButton(
+                        child: ElevatedButton(
                           textColor: Colors.white,
                           color: Colors.black87,
                           onPressed: () => setState(() {
@@ -2100,7 +2100,7 @@ class Code {
       }
     }''';
 
-  static const String clipRrectCode = ''' 
+  static const String clipRrectCode = '''
     class ClipRRectWidget extends StatefulWidget {
       @override
       _ClipRRectWidgetState createState() => _ClipRRectWidgetState();
@@ -2210,7 +2210,7 @@ class Code {
       }
     }''';
 
-  static const String heroCode = ''' 
+  static const String heroCode = '''
       class HeroWidget extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -2306,7 +2306,7 @@ class Code {
       }
     }''';
 
-  static const String customPaintCode = ''' 
+  static const String customPaintCode = '''
     class CustomPaintWidget extends StatefulWidget {
       @override
       _CustomPaintWidgetState createState() => _CustomPaintWidgetState();
@@ -2433,7 +2433,7 @@ class Code {
       }
     }''';
 
-  static const String tooltipCode = ''' 
+  static const String tooltipCode = '''
       class TooltipWidget extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -2547,7 +2547,7 @@ class Code {
       }
     }''';
 
-  static const String fittedBoxCode = ''' 
+  static const String fittedBoxCode = '''
     class FittedBoxWidget extends StatefulWidget {
       @override
       _FittedBoxWidgetState createState() => _FittedBoxWidgetState();
@@ -2699,7 +2699,7 @@ class Code {
       }
     }''';
 
-  static const String layoutBuilderCode = ''' 
+  static const String layoutBuilderCode = '''
       class LayoutBuilderWidget extends StatelessWidget {
       @override
       Widget build(BuildContext context) {
@@ -2774,7 +2774,7 @@ class Code {
       }
     }''';
 
-  static const String absorbPointerCode = ''' 
+  static const String absorbPointerCode = '''
     class AbsorbPointerWidget extends StatefulWidget {
       @override
       _AbsorbPointerWidgetState createState() => _AbsorbPointerWidgetState();
@@ -2811,7 +2811,7 @@ class Code {
                           ? _actionIcon = Icons.blur_off
                           : _actionIcon = Icons.blur_on;
     
-                      _scaffoldKey.currentState.showSnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("Absorbing Property changed to _isAbsorbing"),
                           duration: Duration(milliseconds: 1000),
@@ -2933,7 +2933,7 @@ class Code {
       }
     }''';
 
-  static const String transformCode = ''' 
+  static const String transformCode = '''
     class TransformWidget extends StatefulWidget {
       @override
       _TransformWidgetState createState() => _TransformWidgetState();
@@ -3124,7 +3124,7 @@ class Code {
       }
     }''';
 
-  static const String backDropFilterCode = ''' 
+  static const String backDropFilterCode = '''
     class BackdropFilterWidget extends StatefulWidget {
       @override
       _BackdropFilterWidgetState createState() => _BackdropFilterWidgetState();
@@ -3223,7 +3223,7 @@ class Code {
       }
     }''';
 
-  static const String alignCode = ''' 
+  static const String alignCode = '''
     class AlignWidget extends StatefulWidget {
       @override
       _AlignWidgetState createState() => _AlignWidgetState();
@@ -3343,7 +3343,7 @@ class Code {
           margin: EdgeInsets.only(left: 10, right: 10, top: 14),
     );''';
 
-  static const String positionedCode = ''' 
+  static const String positionedCode = '''
     class PositionedWidget extends StatefulWidget {
       @override
       _PositionedWidgetState createState() => _PositionedWidgetState();
@@ -3465,7 +3465,7 @@ class Code {
       }
     }''';
 
-  static const String animatedBuilderCode = ''' 
+  static const String animatedBuilderCode = '''
     class AnimatedBuilderWidget extends StatefulWidget {
       @override
       _AnimatedBuilderWidgetState createState() => _AnimatedBuilderWidgetState();
@@ -3656,7 +3656,7 @@ class Code {
       }
     }''';
 
-  static const String dismissibleCode = ''' 
+  static const String dismissibleCode = '''
     class DismissibleWidget extends StatefulWidget {
       @override
       _DismissibleWidgetState createState() => _DismissibleWidgetState();
@@ -3764,7 +3764,7 @@ class Code {
       }
     }''';
 
-  static const String sizedCode = ''' 
+  static const String sizedCode = '''
     class SizedBoxWidget extends StatefulWidget {
       @override
       _SizedBoxWidgetState createState() => _SizedBoxWidgetState();
@@ -3811,7 +3811,7 @@ class Code {
                     child: SizedBox(
                       width: _dimentions[1],
                       height: _dimentions[0],
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         child: Text(
                           'Change my size',
                           textAlign: TextAlign.center,
@@ -3981,7 +3981,7 @@ class Code {
       }
     } ''';
 
-  static const String draggableCode = ''' 
+  static const String draggableCode = '''
     class DraggableWidget extends StatefulWidget {
       @override
       _DraggableWidgetState createState() => _DraggableWidgetState();
@@ -4138,7 +4138,7 @@ class Code {
           },
       );''';
 
-  static const String animatedListCode = ''' 
+  static const String animatedListCode = '''
     class AnimatedListWidget extends StatefulWidget {
       @override
       _AnimatedListWidgetState createState() => _AnimatedListWidgetState();
@@ -4234,7 +4234,7 @@ class Code {
       }
     }''';
 
-  static const String flexibleCode = ''' 
+  static const String flexibleCode = '''
     class FlexibleWidget extends StatefulWidget {
       @override
       _FlexibleWidgetState createState() => _FlexibleWidgetState();
@@ -4383,7 +4383,7 @@ class Code {
       }
     }''';
 
-  static const String mediaQueryCode = ''' 
+  static const String mediaQueryCode = '''
     class MediaQueryWidget extends StatefulWidget {
       @override
       _MediaQueryWidgetState createState() => _MediaQueryWidgetState();
@@ -4576,7 +4576,7 @@ class Code {
       ],
     );''';
 
-  static const String spacerCode = ''' 
+  static const String spacerCode = '''
     class SpacerWidget extends StatefulWidget {
       @override
       _SpacerWidgetState createState() => _SpacerWidgetState();
@@ -4676,7 +4676,7 @@ class Code {
       }
     }''';
 
-  static const String animatedIconCode = ''' 
+  static const String animatedIconCode = '''
     class AnimatedIconWidget extends StatefulWidget {
       @override
       _AnimatedIconWidgetState createState() => _AnimatedIconWidgetState();
@@ -4879,7 +4879,7 @@ class Code {
           ],
       );''';
 
-  static const String aspectRatioCode = ''' 
+  static const String aspectRatioCode = '''
     class AspectRatioWidget extends StatefulWidget {
       @override
       _AspectRatioWidgetState createState() => _AspectRatioWidgetState();
@@ -4986,7 +4986,7 @@ class Code {
           margin: EdgeInsets.only(left: 10, right: 10, top: 14),
     );''';
 
-  static const String limitedBoxCode = ''' 
+  static const String limitedBoxCode = '''
     class LimitedBoxWidget extends StatefulWidget {
       @override
       _LimitedBoxWidgetState createState() => _LimitedBoxWidgetState();
@@ -5057,7 +5057,7 @@ class Code {
           ),
      );''';
 
-  static const String placeholderCode = ''' 
+  static const String placeholderCode = '''
     class PlaceholderWidget extends StatefulWidget {
       @override
       _PlaceholderWidgetState createState() => _PlaceholderWidgetState();
@@ -5159,7 +5159,7 @@ class Code {
       }
     }''';
 
-  static const String richTextCode = ''' 
+  static const String richTextCode = '''
     class RichTextWidget extends StatefulWidget {
       @override
       _RichTextWidgetState createState() => _RichTextWidgetState();
@@ -5288,7 +5288,7 @@ class Code {
       }
     }''';
 
-  static const String reorderableListviewCode = ''' 
+  static const String reorderableListviewCode = '''
     class ReorderableListViewWidget extends StatefulWidget {
       @override
       _ReorderableListViewWidgetState createState() =>
@@ -5384,7 +5384,7 @@ class Code {
       }
     }''';
 
-  static const String animatedSwitcherCode = ''' 
+  static const String animatedSwitcherCode = '''
     class AnimatedSwitcherWidget extends StatefulWidget {
       @override
       _AnimatedSwitcherWidgetState createState() => _AnimatedSwitcherWidgetState();
@@ -5471,7 +5471,7 @@ class Code {
       }
     }''';
 
-  static const String animatedPositionedCode = ''' 
+  static const String animatedPositionedCode = '''
     class AnimatedPositionedWidget extends StatefulWidget {
       @override
       _AnimatedPositionedWidgetState createState() =>
@@ -5605,7 +5605,7 @@ class Code {
       }
     }''';
 
-  static const String animatedPaddingCode = ''' 
+  static const String animatedPaddingCode = '''
     class AnimatedPaddingWidget extends StatefulWidget {
       @override
       _AnimatedPaddingWidgetState createState() => _AnimatedPaddingWidgetState();
@@ -5659,7 +5659,7 @@ class Code {
       }
     }''';
 
-  static const String indexedStackCode = ''' 
+  static const String indexedStackCode = '''
     class IndexedStackWidget extends StatefulWidget {
       @override
       _IndexedStackWidgetState createState() => _IndexedStackWidgetState();
@@ -5741,7 +5741,7 @@ class Code {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(18.0),
-                                child: RaisedButton(
+                                child: ElevatedButton(
                                   onPressed: () =>
                                       setState(() => count = count = count + 1),
                                   color: Colors.black,
@@ -5776,21 +5776,21 @@ class Code {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () =>
                         _widgetIndex == 0 ? null : setState(() => _widgetIndex = 0),
                     color: _widgetIndex == 0 ? Colors.grey : Colors.blue,
                     textColor: Colors.white,
                     child: Text("Index 0"),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () =>
                         _widgetIndex == 1 ? null : setState(() => _widgetIndex = 1),
                     color: _widgetIndex == 1 ? Colors.grey : Colors.blue,
                     textColor: Colors.white,
                     child: Text("Index 1"),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () =>
                         _widgetIndex == 2 ? null : setState(() => _widgetIndex = 2),
                     color: _widgetIndex == 2 ? Colors.grey : Colors.blue,
@@ -5805,7 +5805,7 @@ class Code {
       }
     }''';
 
-  static const String semanticsCode = ''' 
+  static const String semanticsCode = '''
     class SemanticsWidget extends StatefulWidget {
       @override
       _SemanticsWidgetState createState() => _SemanticsWidgetState();
@@ -5863,7 +5863,7 @@ class Code {
       }
     }''';
 
-  static const String constrainedBoxCode = ''' 
+  static const String constrainedBoxCode = '''
     class ConstrainedBoxWidget extends StatefulWidget {
       @override
       _ConstrainedBoxWidgetState createState() => _ConstrainedBoxWidgetState();
@@ -6007,7 +6007,7 @@ class Code {
       }
     }''';
 
-  static const String stackCode = ''' 
+  static const String stackCode = '''
     class StackWidget extends StatefulWidget {
       @override
       _StackWidgetState createState() => _StackWidgetState();
@@ -6142,7 +6142,7 @@ class Code {
       }
     }''';
 
-  static const String animatedOpacityCode = ''' 
+  static const String animatedOpacityCode = '''
     class AnimatedOpacityWidget extends StatefulWidget {
       @override
       _AnimatedOpacityWidgetState createState() => _AnimatedOpacityWidgetState();
@@ -6196,7 +6196,7 @@ class Code {
                   child: Text("Opacity Value - opacityLevel.toString()"),
                 ),
                 Container(
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text(buttonText),
                     onPressed: _changeOpacity,
                   ),
@@ -6215,7 +6215,7 @@ class Code {
       }
     }''';
 
-  static const String fractionallySizedBoxCode = ''' 
+  static const String fractionallySizedBoxCode = '''
     class FractionallySizedBoxWidget extends StatefulWidget {
       @override
       _FractionallySizedBoxWidgetState createState() =>
@@ -6308,7 +6308,7 @@ class Code {
       }
     }''';
 
-  static const String listViewCode = ''' 
+  static const String listViewCode = '''
     class ListViewWidget extends StatefulWidget {
       @override
       _ListViewWidgetState createState() => _ListViewWidgetState();
@@ -6404,7 +6404,7 @@ class Code {
     }
     ''';
 
-  static const String listTileCode = ''' 
+  static const String listTileCode = '''
     class ListTileWidget extends StatefulWidget {
       @override
       _ListTileWidgetState createState() => _ListTileWidgetState();
@@ -6499,7 +6499,7 @@ class Code {
       }
     }''';
 
-  static const String containerCode = ''' 
+  static const String containerCode = '''
     class ContainerWidget extends StatefulWidget {
       @override
       _ContainerWidgetState createState() => _ContainerWidgetState();
@@ -6645,7 +6645,7 @@ class Code {
       }
     }''';
 
-  static const String selectableTextCode = ''' 
+  static const String selectableTextCode = '''
     class SelectableTextWidget extends StatefulWidget {
       @override
       _SelectableTextWidgetState createState() => _SelectableTextWidgetState();
@@ -6735,7 +6735,7 @@ class Code {
       }
     }''';
 
-  static const String dataTableWidgetCode = ''' 
+  static const String dataTableWidgetCode = '''
     class DataTableWidget extends StatefulWidget {
       @override
       _DataTableWidgetState createState() => _DataTableWidgetState();
@@ -6874,7 +6874,7 @@ class Code {
       }
     }''';
 
-  static const String sliderWidgetCode = ''' 
+  static const String sliderWidgetCode = '''
     class SliderWidget extends StatefulWidget {
       @override
       _SliderWidgetState createState() => _SliderWidgetState();
@@ -7034,7 +7034,7 @@ class Code {
       }
     }''';
 
-  static const String alertDialogWidgetCode = ''' 
+  static const String alertDialogWidgetCode = '''
     class AlertDialogWidget extends StatefulWidget {
       @override
       _AlertDialogWidgetState createState() => _AlertDialogWidgetState();
@@ -7073,7 +7073,7 @@ class Code {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       child: Text("Cupertino"),
                       onPressed: () => {
                         showDialog(
@@ -7101,7 +7101,7 @@ class Code {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       child: Text("Material"),
                       onPressed: () => {
                         showDialog(
@@ -7134,7 +7134,7 @@ class Code {
       }
     }''';
 
-  static const String animatedCrossFadeWidgetCode = ''' 
+  static const String animatedCrossFadeWidgetCode = '''
     class AnimatedCrossFadeWidget extends StatefulWidget {
       @override
       _AnimatedCrossFadeWidgetState createState() =>
@@ -7204,7 +7204,7 @@ class Code {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 12.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text("Cross Fade"),
                     onPressed: () => setState(() {
                       crossFadeView = crossFadeView == CrossFadeState.showFirst
@@ -7220,7 +7220,7 @@ class Code {
       }
     }''';
 
-  static const String draggableScrollableSheetWidgetCode = ''' 
+  static const String draggableScrollableSheetWidgetCode = '''
     class DraggableScrollableSheetWidget extends StatefulWidget {
       @override
       _DraggableScrollableSheetWidgetState createState() =>
@@ -7309,7 +7309,7 @@ class Code {
       }
     }''';
 
-  static const String colorFilteredWidgetCode = ''' 
+  static const String colorFilteredWidgetCode = '''
     class ColorFilteredWidget extends StatefulWidget {
       @override
       _ColorFilteredWidgetState createState() => _ColorFilteredWidgetState();
@@ -7425,7 +7425,7 @@ class Code {
           margin: EdgeInsets.only(left: 10, right: 10, top: 14),
         );''';
 
-  static const String toggleButtonsWidgetCode = ''' 
+  static const String toggleButtonsWidgetCode = '''
     class ToggleButtonsWidget extends StatefulWidget {
       @override
       _ToggleButtonsWidgetState createState() => _ToggleButtonsWidgetState();
@@ -7578,7 +7578,7 @@ class Code {
       }
     }''';
 
-  static const String cupertinoActionSheetWidgetCode = ''' 
+  static const String cupertinoActionSheetWidgetCode = '''
     class CupertinoActionSheetWidget extends StatefulWidget {
       @override
       _CupertinoActionSheetWidgetState createState() =>
@@ -7616,8 +7616,8 @@ class Code {
             ],
           ),
           body: Center(
-            child: RaisedButton(
-              color: Theme.of(context).backgroundColor,
+            child: ElevatedButton(
+              color: Theme.of(context).colorScheme.background,
               child: Text(
                 "Show sheet",
                 style: TextStyle(color: Theme.of(context).primaryColor),
@@ -7628,11 +7628,11 @@ class Code {
                   builder: (context) => CupertinoActionSheet(
                     title: Text(
                       "Things",
-                      style: TextStyle(color: Theme.of(context).backgroundColor),
+                      style: TextStyle(color: Theme.of(context).colorScheme.background),
                     ),
                     message: Text(
                       "Small list of things to do",
-                      style: TextStyle(color: Theme.of(context).backgroundColor),
+                      style: TextStyle(color: Theme.of(context).colorScheme.background),
                     ),
                     actions: <Widget>[
                       CupertinoActionSheetAction(
@@ -7666,7 +7666,7 @@ class Code {
                 ).then(
                   (option) {
                     if (option != null) {
-                      _scaffoldKey.currentState.showSnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("Chosen option is - option"),
                           duration: Duration(milliseconds: 1000),
@@ -7682,7 +7682,7 @@ class Code {
       }
     }''';
 
-  static const String tweenAnimationBuilderWidgetCode = ''' 
+  static const String tweenAnimationBuilderWidgetCode = '''
     class TweenAnimationBuilderWidget extends StatefulWidget {
       @override
       _TweenAnimationBuilderWidgetState createState() =>
@@ -7739,7 +7739,7 @@ class Code {
                   colorFilter: ColorFilter.mode(value, BlendMode.modulate),
                 );
               },
-              onEnd: () => _scaffoldKey.currentState.showSnackBar(
+              onEnd: () => ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text("Done with the Animation"),
                   duration: Duration(milliseconds: 3000),
@@ -7751,7 +7751,7 @@ class Code {
       }
     }''';
 
-  static const String imageWidgetCode = ''' 
+  static const String imageWidgetCode = '''
     class ImageWidget extends StatefulWidget {
       @override
       _ImageWidgetState createState() => _ImageWidgetState();
@@ -7848,7 +7848,7 @@ class Code {
       return true; // return true if the route to be popped
     }''';
 
-  static const String tabsWidgetCode = ''' 
+  static const String tabsWidgetCode = '''
     class TabsWidget extends StatefulWidget {
       @override
       _TabsWidgetState createState() => _TabsWidgetState();
@@ -7889,7 +7889,7 @@ class Code {
               //Specify the tabs for your view
               bottom: TabBar(
                 tabs: myTabs,
-                indicatorColor: Theme.of(context).backgroundColor,
+                indicatorColor: Theme.of(context).colorScheme.background,
               ),
             ),
             //Provide each tab with its own content
@@ -7908,7 +7908,7 @@ class Code {
       }
     }''';
 
-  static const String drawerWidgetCode = ''' 
+  static const String drawerWidgetCode = '''
     class DrawerWidget extends StatefulWidget {
       @override
       _DrawerWidgetState createState() => _DrawerWidgetState();
@@ -7959,20 +7959,20 @@ class Code {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       child: Text('Open Drawer (from left)'),
-                      color: Theme.of(context).backgroundColor,
+                      color: Theme.of(context).colorScheme.background,
                       textColor: Theme.of(context).accentColor,
-                      onPressed: () => _scaffoldKey.currentState.openDrawer(),
+                      onPressed: () => ScaffoldMessenger.of(context).openDrawer(),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       child: Text('Open Drawer (from right)'),
-                      color: Theme.of(context).backgroundColor,
+                      color: Theme.of(context).colorScheme.background,
                       textColor: Theme.of(context).accentColor,
-                      onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
+                      onPressed: () => ScaffoldMessenger.of(context).openEndDrawer(),
                     ),
                   )
                 ],
@@ -8025,7 +8025,7 @@ class Code {
     }
     ''';
 
-  static const String snackBarWidgetCode = ''' 
+  static const String snackBarWidgetCode = '''
     class SnackBarWidget extends StatefulWidget {
       @override
       _SnackBarWidgetState createState() => _SnackBarWidgetState();
@@ -8073,11 +8073,11 @@ class Code {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text('Show simple SnackBar'),
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     textColor: Theme.of(context).accentColor,
-                    onPressed: () => _scaffoldKey.currentState.showSnackBar(
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         duration: Duration(milliseconds: 500),
                         content: Text("Simple SnackBar"),
@@ -8087,11 +8087,11 @@ class Code {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text('Show elevated SnackBar'),
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     textColor: Theme.of(context).accentColor,
-                    onPressed: () => _scaffoldKey.currentState.showSnackBar(
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         duration: Duration(milliseconds: 500),
                         elevation: 6.0,
@@ -8103,11 +8103,11 @@ class Code {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text('Show custom layout SnackBar'),
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                     textColor: Theme.of(context).accentColor,
-                    onPressed: () => _scaffoldKey.currentState.showSnackBar(
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         duration: Duration(milliseconds: 500),
                         elevation: 6.0,
@@ -8131,7 +8131,7 @@ class Code {
         );
       }
     }''';
-  static const String listWheelScrollViewWidgetCode = ''' 
+  static const String listWheelScrollViewWidgetCode = '''
     class ListWheelScrollViewWidget extends StatefulWidget {
       @override
       _ListWheelScrollViewWidgetState createState() =>
@@ -8242,7 +8242,7 @@ class Code {
         );
       }
     }''';
-  static const String shaderMaskWidgetCode = ''' 
+  static const String shaderMaskWidgetCode = '''
     class ShaderMaskWidget extends StatefulWidget {
       @override
       _ShaderMaskWidgetState createState() => _ShaderMaskWidgetState();
@@ -8339,7 +8339,7 @@ class Code {
       }
     }''';
 
-  static const String notificationListenerCode = ''' 
+  static const String notificationListenerCode = '''
     class NotificationListenerWidget extends StatefulWidget {
       @override
       _NotificationListenerWidgetState createState() => _NotificationListenerWidgetState();
@@ -8416,7 +8416,7 @@ class Code {
       const ColorNotification({this.color});
     }''';
 
-  static const String builderCode = ''' 
+  static const String builderCode = '''
     class BuilderWidget extends StatefulWidget {
       @override
       _BuilderWidgetState createState() => _BuilderWidgetState();
@@ -8448,7 +8448,7 @@ class Code {
           body: Center(
             child: Builder(
               builder: (BuildContext context) {
-                return RaisedButton(
+                return ElevatedButton(
                   color: Colors.blue,
                   textColor: Colors.white,
                   child: Text("Click me"),
@@ -8475,7 +8475,7 @@ class Code {
       }
     }''';
 
-  static const String clipPathCode = ''' 
+  static const String clipPathCode = '''
     class ClipPathWidget extends StatefulWidget {
       @override
       _ClipPathWidgetState createState() => _ClipPathWidgetState();
@@ -8584,7 +8584,7 @@ class Code {
       bool shouldReclip(CustomClipper<Path> oldClipper) => false;
     }''';
 
-  static const String progressIndicatorCode = ''' 
+  static const String progressIndicatorCode = '''
     class CircularProgressIndicatorWidget extends StatefulWidget {
       @override
       _CircularProgressIndicatorWidgetState createState() => _CircularProgressIndicatorWidgetState();
@@ -8678,7 +8678,7 @@ class Code {
       }
     }''';
 
-  static const String dividerCode = ''' 
+  static const String dividerCode = '''
     class DividerWidget extends StatefulWidget {
       @override
       _DividerWidgetState createState() => _DividerWidgetState();
@@ -8733,7 +8733,7 @@ class Code {
       }
     }''';
 
-  static const String ignorePointerCode = ''' 
+  static const String ignorePointerCode = '''
     class IgnorePointerWidget extends StatefulWidget {
       @override
       _IgnorePointerWidgetState createState() => _IgnorePointerWidgetState();
@@ -8817,7 +8817,7 @@ class Code {
       }
     }''';
 
-  static const String cupertinoActivityIndicatorCode = ''' 
+  static const String cupertinoActivityIndicatorCode = '''
     class CupertinoActivityIndicatorWidget extends StatefulWidget {
       @override
       _CupertinoActivityIndicatorWidgetState createState() => _CupertinoActivityIndicatorWidgetState();
@@ -8867,7 +8867,7 @@ class Code {
       }
     }''';
 
-  static const String clipOvalCode = ''' 
+  static const String clipOvalCode = '''
     class ClipOvalWidget extends StatefulWidget {
       @override
       _ClipOvalWidgetState createState() => _ClipOvalWidgetState();
@@ -8979,7 +8979,7 @@ class Code {
       }
     }''';
 
-  static const String animatedWidgetCode = ''' 
+  static const String animatedWidgetCode = '''
     class AnimatedWidgett extends StatefulWidget {
       @override
       _AnimatedWidgettState createState() => _AnimatedWidgettState();
@@ -9071,7 +9071,7 @@ class Code {
       }
     }''';
 
-  static const String paddingCode = ''' 
+  static const String paddingCode = '''
     class PaddingWidget extends StatefulWidget {
       @override
       _PaddingWidgetState createState() => _PaddingWidgetState();

@@ -40,9 +40,11 @@ class _SafeAreaWidgetState extends State<SafeAreaWidget> {
             ),
 
             ///Press this button to toggle the value of _isEnabled variable
-            RaisedButton(
-              textColor: Colors.white,
-              color: Colors.indigo,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.indigo,
+              ),
               onPressed: () => setState(() {
                 _isEnabled == true ? _isEnabled = false : _isEnabled = true;
               }),

@@ -50,7 +50,7 @@ class _ValueListenableBuilderWidgetState
       ),
       body: Center(
         child: ValueListenableBuilder(
-          builder: (BuildContext context, int value, Widget child) {
+          builder: (BuildContext context, int value, Widget? child) {
             // This builder will only get called when the _counter
             // is updated.
             return Column(
@@ -89,7 +89,7 @@ class _ValueListenableBuilderWidgetState
                           ),
                   ),
                 ),
-                child,
+                child ?? const SizedBox.shrink(),
               ],
             );
           },

@@ -9,8 +9,9 @@ class PaddingWidget extends StatefulWidget {
   _PaddingWidgetState createState() => _PaddingWidgetState();
 }
 
-class _PaddingWidgetState extends State<PaddingWidget> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+class _PaddingWidgetState extends State<PaddingWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
 
   bool isPadding = false;
 
@@ -35,7 +36,9 @@ class _PaddingWidgetState extends State<PaddingWidget> with SingleTickerProvider
         title: Text(
           'Padding Widget',
           style: TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: Utils.ubuntuRegularFont),
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: Utils.ubuntuRegularFont),
         ),
         actions: <Widget>[
           IconButton(
@@ -51,16 +54,19 @@ class _PaddingWidgetState extends State<PaddingWidget> with SingleTickerProvider
       ),
       body: AnimatedBuilder(
         animation: _controller,
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Column(
             children: <Widget>[
               FlexContainer(color: Colors.yellow, padding: _controller.value),
               Flexible(
                 child: Row(
                   children: <Widget>[
-                    FlexContainer(color: Colors.green, padding: _controller.value),
-                    FlexContainer(color: Colors.blue, padding: _controller.value),
-                    FlexContainer(color: Colors.green, padding: _controller.value),
+                    FlexContainer(
+                        color: Colors.green, padding: _controller.value),
+                    FlexContainer(
+                        color: Colors.blue, padding: _controller.value),
+                    FlexContainer(
+                        color: Colors.green, padding: _controller.value),
                   ],
                 ),
               ),
@@ -72,7 +78,9 @@ class _PaddingWidgetState extends State<PaddingWidget> with SingleTickerProvider
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.blue,
         onPressed: () {
-          _controller.value == 0 ? _controller.forward() : _controller.reverse();
+          _controller.value == 0
+              ? _controller.forward()
+              : _controller.reverse();
           setState(() {
             isPadding ? isPadding = false : isPadding = true;
           });
@@ -94,7 +102,8 @@ class FlexContainer extends StatelessWidget {
   final color;
   final double padding;
 
-  const FlexContainer({Key key, this.color, this.padding}) : super(key: key);
+  const FlexContainer({Key? key, required this.color, required this.padding})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
