@@ -3,7 +3,7 @@
 export "FLUTTER_ROOT=/Volumes/D/utilities/flutter/fvm/versions/3.22.2"
 export "FLUTTER_APPLICATION_PATH=/Volumes/D/projects/flutter/flutter_widget_guide"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=/Volumes/D/projects/flutter/flutter_widget_guide/lib/main.dart"
+export "FLUTTER_TARGET=/Volumes/D/projects/flutter/flutter_widget_guide/lib/main_learn.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
 export "FLUTTER_BUILD_NUMBER=1"
