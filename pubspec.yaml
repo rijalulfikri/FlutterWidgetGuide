@@ -37,11 +37,9 @@ dependencies:
   string_scanner: ^1.2.0
   provider: ^6.1.2
   # google_mobile_ads: ^3.1.0
-  youtube_player_flutter: ^9.1.1 #untuk XCode 16, tidak mendukung flutter 3.22.2, sehingga tidak bisa jalankan versi ^8.1.2
+  youtube_player_flutter: ^9.1.1
   flutter_svg: ^2.0.16
   http: ^1.2.2
-  # firebase_messaging: ^15.1.6
-  # firebase_remote_config: ^5.2.0
   transparent_image: ^2.0.1
 
 dev_dependencies:
