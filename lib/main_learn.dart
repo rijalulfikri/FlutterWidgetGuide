@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_guide/learn/learn_app.dart';
+import 'package:flutter_widget_guide/learn/page_app.dart';
 
 void main() {
   runApp(
@@ -7,7 +7,7 @@ void main() {
       title: 'My app', // used by the OS task switcher
       home: SafeArea(
         // child: MyScaffold(),
-        child: LearnHomePage(),
+        child: PageApp(),
       ),
     ),
   );

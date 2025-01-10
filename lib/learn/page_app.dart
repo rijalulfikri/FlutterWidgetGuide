@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_guide/learn/learn_text_overflow.dart';
+import 'package:flutter_widget_guide/learn/learn_widgets/learn_text_overflow.dart';
 
-class LearnHomePage extends StatelessWidget {
-  const LearnHomePage({super.key});
+class PageApp extends StatelessWidget {
+  const PageApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: LearnApp(),
+      home: HomeApp(),
       // home: DraggableBottomSheetExample(),
       // home: LearnExpanded(),
       // home: ListTileExample(),
@@ -16,8 +16,8 @@ class LearnHomePage extends StatelessWidget {
   }
 }
 
-class LearnApp extends StatelessWidget {
-  const LearnApp({super.key});
+class HomeApp extends StatelessWidget {
+  const HomeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
