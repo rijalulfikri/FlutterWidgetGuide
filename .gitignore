@@ -26,3 +26,4 @@ android/app/google-services.json
 *.jks
 .flutter-plugins-dependencies
 pubspec.lock
+.history
